@@ -19,10 +19,28 @@ public class GameManager : MonoBehaviour
     #endregion
 
     #region Private Variables
-
+    [SerializeField] private int _currLevel = 1;
     #endregion
 
     #region Unity Callbacks
+
+    #region Events
+    void OnEnable()
+    {
+        PlayerController.OnLevelEnded += OnLevelEndedEventReceived;
+    }
+
+    void OnDisable()
+    {
+        PlayerController.OnLevelEnded -= OnLevelEndedEventReceived;
+    }
+
+    void OnDestroy()
+    {
+        PlayerController.OnLevelEnded -= OnLevelEndedEventReceived;
+    }
+    #endregion
+
     void Start()
     {
         StartCoroutine(StartGameDelay());
@@ -36,6 +54,14 @@ public class GameManager : MonoBehaviour
     #endregion
 
     #region My Functions
+    #endregion
+
+    #region Events
+    void OnLevelEndedEventReceived()
+    {
+        _currLevel++;
+        StartCoroutine(StartNextLevelDelay());
+    }
     #endregion
 
     #region Coroutines
@@ -56,6 +82,14 @@ public class GameManager : MonoBehaviour
         horrorDimension.SetActive(!horrorDimension.activeSelf);
         fadeFastBG.Play("FadeIn");
         gmData.ChangeState("Game");
+    }
+
+    IEnumerator StartNextLevelDelay()
+    {
+        fadeFastBG.Play("FadeOut");
+        gmData.ChangeState("Switch");
+        yield return new WaitForSeconds(1f);
+        Application.LoadLevel($"Level_{_currLevel}");
     }
     #endregion
 }

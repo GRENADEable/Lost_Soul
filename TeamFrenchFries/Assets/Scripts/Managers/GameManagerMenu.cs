@@ -49,7 +49,7 @@ public class GameManagerMenu : MonoBehaviour
         UIButtons();
         fadeBG.Play("FadeOut");
         yield return new WaitForSeconds(1f);
-        Application.LoadLevel("Main_Scene");
+        Application.LoadLevel("Level_1");
     }
     #endregion
 }

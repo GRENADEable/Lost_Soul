@@ -9,11 +9,15 @@ public class PlayerController : MonoBehaviour
     public GameMangerData gmData;
 
     public float playerSpeed = 1f;
+
+    public delegate void SendEvents();
+    public static event SendEvents OnLevelEnded;
     #endregion
 
     #region Private Variables
     private Rigidbody2D _rg2D;
     private Vector2 _moveDirection;
+    private int _currKey = 0;
     #endregion
 
     #region Unity Callbacks
@@ -35,6 +39,12 @@ public class PlayerController : MonoBehaviour
     {
         if (gmData.currState == GameMangerData.GameState.Game)
             _rg2D.MovePosition(_rg2D.position + (_moveDirection * playerSpeed * Time.fixedDeltaTime));
+    }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("EndArea"))
+            OnLevelEnded?.Invoke();
     }
     #endregion
 
