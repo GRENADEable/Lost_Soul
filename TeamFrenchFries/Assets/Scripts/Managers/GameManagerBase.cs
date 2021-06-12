@@ -71,13 +71,13 @@ public class GameManagerBase : MonoBehaviour
     }
 
     #region Cursor
-    void EnableCursor()
+    protected void EnableCursor()
     {
         gmData.LockCursor(false);
         gmData.VisibleCursor(true);
     }
 
-    void DisableCursor()
+    protected void DisableCursor()
     {
         gmData.LockCursor(true);
         gmData.VisibleCursor(false);

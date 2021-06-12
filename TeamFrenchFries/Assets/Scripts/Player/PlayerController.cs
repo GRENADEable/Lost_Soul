@@ -16,6 +16,7 @@ public class PlayerController : MonoBehaviour
     public delegate void SendEvents();
     public static event SendEvents OnLevelEnded;
     public static event SendEvents OnLevel2KeyPlaced;
+    public static event SendEvents OnVoidDeath;
 
     public delegate void SendEventsInt(int index);
     public static event SendEventsInt OnPressurePlatePressed;
@@ -28,8 +29,8 @@ public class PlayerController : MonoBehaviour
     private Vector2 _moveDirection;
     private Animator _playerAnim;
     private Collider2D _col2D;
-    [SerializeField] private GameObject _pickedKey;
-    [SerializeField] private int _currKey = 0;
+    private GameObject _pickedKey;
+    private int _currKey = 0;
     #endregion
 
     #region Unity Callbacks
@@ -75,6 +76,15 @@ public class PlayerController : MonoBehaviour
         if (other.CompareTag("Press_1") || other.CompareTag("Press_2") ||
             other.CompareTag("Press_3") || other.CompareTag("Press_4"))
             _col2D = other;
+
+        if (other.CompareTag("Safe_Zone"))
+            Debug.Log("Safe");
+
+        if (other.CompareTag("Death_Zone"))
+        {
+            OnVoidDeath?.Invoke();
+            Debug.Log("Dead");
+        }
     }
 
     void OnTriggerExit2D(Collider2D other)
@@ -85,9 +95,21 @@ public class PlayerController : MonoBehaviour
         if (other.CompareTag("Plate"))
             _col2D = null;
 
-        if (other.CompareTag("Press_1") || other.CompareTag("Press_2") ||
-            other.CompareTag("Press_3") || other.CompareTag("Press_4"))
-            _col2D = null;
+        //if (other.CompareTag("Press_1") || other.CompareTag("Press_2") ||
+        //    other.CompareTag("Press_3") || other.CompareTag("Press_4"))
+        //    _col2D = null;
+
+        if (other.CompareTag("Press_1"))
+            OnPressurePlatePressed?.Invoke(1);
+
+        if (other.CompareTag("Press_2"))
+            OnPressurePlatePressed?.Invoke(2);
+
+        if (other.CompareTag("Press_3"))
+            OnPressurePlatePressed?.Invoke(3);
+
+        if (other.CompareTag("Press_4"))
+            OnPressurePlatePressed?.Invoke(4);
     }
     #endregion
 
@@ -115,21 +137,21 @@ public class PlayerController : MonoBehaviour
             && _col2D.CompareTag("Plate") && _currKey == 1)
             InteractPlate();
 
-        if (Input.GetKeyDown(KeyCode.E) && _col2D != null
-            && _col2D.CompareTag("Press_1"))
-            OnPressurePlatePressed?.Invoke(1);
+        //if (Input.GetKeyDown(KeyCode.E) && _col2D != null
+        //    && _col2D.CompareTag("Press_1"))
+        //    OnPressurePlatePressed?.Invoke(1);
 
-        if (Input.GetKeyDown(KeyCode.E) && _col2D != null
-            && _col2D.CompareTag("Press_2"))
-            OnPressurePlatePressed?.Invoke(2);
+        //if (Input.GetKeyDown(KeyCode.E) && _col2D != null
+        //    && _col2D.CompareTag("Press_2"))
+        //    OnPressurePlatePressed?.Invoke(2);
 
-        if (Input.GetKeyDown(KeyCode.E) && _col2D != null
-           && _col2D.CompareTag("Press_3"))
-            OnPressurePlatePressed?.Invoke(3);
+        //if (Input.GetKeyDown(KeyCode.E) && _col2D != null
+        //   && _col2D.CompareTag("Press_3"))
+        //    OnPressurePlatePressed?.Invoke(3);
 
-        if (Input.GetKeyDown(KeyCode.E) && _col2D != null
-           && _col2D.CompareTag("Press_4"))
-            OnPressurePlatePressed?.Invoke(4);
+        //if (Input.GetKeyDown(KeyCode.E) && _col2D != null
+        //   && _col2D.CompareTag("Press_4"))
+        //    OnPressurePlatePressed?.Invoke(4);
     }
 
     void PickKey()

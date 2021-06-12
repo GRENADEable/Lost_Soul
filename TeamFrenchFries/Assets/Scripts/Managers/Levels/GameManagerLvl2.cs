@@ -6,11 +6,8 @@ public class GameManagerLvl2 : GameManagerBase
 {
     #region Public Variables
     [Space, Header("End Area")]
+    public Collider2D endCol2D;
     public SpriteRenderer endArea;
-    #endregion
-
-    #region Private Variables
-
     #endregion
 
     #region Unity Callbacks
@@ -49,6 +46,10 @@ public class GameManagerLvl2 : GameManagerBase
     #endregion
 
     #region My Functions
-    void OnLevel2KeyPlacedEventReceived() => endArea.color = Color.green;
+    void OnLevel2KeyPlacedEventReceived()
+    {
+        endCol2D.enabled = true;
+        endArea.color = Color.green;
+    }
     #endregion
 }

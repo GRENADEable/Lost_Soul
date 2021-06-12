@@ -1,11 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class GameManagerLvl3 : GameManagerBase
 {
     #region Public Variables
+    [Space, Header("End Area")]
     public Collider2D endAreaCol;
     public SpriteRenderer endArea;
     public SpriteRenderer[] pressurePlateImg;
@@ -51,9 +51,6 @@ public class GameManagerLvl3 : GameManagerBase
         if (Input.GetKeyDown(KeyCode.Tab) && gmData.currState == GameMangerData.GameState.Game)
             PauseGame();
     }
-    #endregion
-
-    #region My Functions
     #endregion
 
     #region Events
