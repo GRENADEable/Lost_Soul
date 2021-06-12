@@ -1,13 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManagerLvl2 : GameManagerBase
 {
     #region Public Variables
     [Space, Header("End Area")]
     public Collider2D endCol2D;
-    public SpriteRenderer endArea;
+    public SpriteRenderer endDoorImg;
+    public Sprite openDoorImg;
+
+    [Space, Header("Plate")]
+    public SpriteRenderer plateImg;
+    public Sprite plateOnImg;
     #endregion
 
     #region Unity Callbacks
@@ -48,8 +54,9 @@ public class GameManagerLvl2 : GameManagerBase
     #region My Functions
     void OnLevel2KeyPlacedEventReceived()
     {
+        endDoorImg.sprite = openDoorImg;
+        plateImg.sprite = plateOnImg;
         endCol2D.enabled = true;
-        endArea.color = Color.green;
     }
     #endregion
 }
