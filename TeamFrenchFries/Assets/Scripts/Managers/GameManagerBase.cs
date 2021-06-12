@@ -97,7 +97,7 @@ public class GameManagerBase : MonoBehaviour
     #region Coroutines
     protected IEnumerator StartGameDelay()
     {
-        DisableCursor();
+        //DisableCursor();
         fadeBG.Play("FadeIn");
         gmData.ChangeState("Intro");
         yield return new WaitForSeconds(1f);

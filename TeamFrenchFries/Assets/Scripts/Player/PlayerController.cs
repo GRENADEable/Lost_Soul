@@ -8,7 +8,9 @@ public class PlayerController : MonoBehaviour
     [Space, Header("Data")]
     public GameMangerData gmData;
 
+    [Space, Header("Player")]
     public float playerSpeed = 1f;
+    public Transform pickKeyPos;
 
     #region Events
     public delegate void SendEvents();
@@ -26,7 +28,8 @@ public class PlayerController : MonoBehaviour
     private Vector2 _moveDirection;
     private Animator _playerAnim;
     private Collider2D _col2D;
-    private int _currKey = 0;
+    [SerializeField] private GameObject _pickedKey;
+    [SerializeField] private int _currKey = 0;
     #endregion
 
     #region Unity Callbacks
@@ -131,14 +134,21 @@ public class PlayerController : MonoBehaviour
 
     void PickKey()
     {
-        Destroy(_col2D.gameObject);
+        _pickedKey = _col2D.gameObject;
+        _pickedKey.transform.position = pickKeyPos.position;
+        _pickedKey.transform.parent = pickKeyPos;
+        Destroy(_pickedKey.GetComponent<Rigidbody2D>());
+        _pickedKey.GetComponent<Collider2D>().enabled = false;
         _currKey++;
+        _playerAnim.SetBool("IsPicking", true);
     }
 
     void InteractPlate()
     {
+        _playerAnim.SetBool("IsPicking", false);
         OnLevel2KeyPlaced?.Invoke();
-        _col2D = null;
+        Destroy(_pickedKey);
+        _col2D.enabled = false;
         _currKey = 0;
     }
     #endregion
