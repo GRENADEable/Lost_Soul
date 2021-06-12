@@ -25,7 +25,7 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D _rg2D;
     private Vector2 _moveDirection;
     private Animator _playerAnim;
-    [SerializeField] private Collider2D _col2D;
+    private Collider2D _col2D;
     private int _currKey = 0;
     #endregion
 
@@ -98,9 +98,8 @@ public class PlayerController : MonoBehaviour
 
         _playerAnim.SetFloat("Horizontal", _moveDirection.x);
         _playerAnim.SetFloat("Vertical", _moveDirection.y);
-        _playerAnim.SetFloat("Speed", _moveDirection.sqrMagnitude);
-
         _moveDirection = _moveDirection.normalized;
+        _playerAnim.SetFloat("Speed", _moveDirection.sqrMagnitude);
     }
 
     #region Interaction
