@@ -1607,7 +1607,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 48e93eef0688c4a259cb0eddcd8661f7, type: 3}
-  m_Color: {r: 0, g: 1, b: 0, a: 1}
+  m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -4671,10 +4671,12 @@ MonoBehaviour:
   pausePanel: {fileID: 1977234038}
   _currLevel: 3
   endAreaCol: {fileID: 534339005}
-  _hitPlate1: 0
-  _hitPlate2: 0
-  _hitPlate3: 0
-  _hitPlate4: 0
+  endArea: {fileID: 534339007}
+  pressurePlateImg:
+  - {fileID: 1729217045}
+  - {fileID: 1675111434}
+  - {fileID: 55831902}
+  - {fileID: 1378136334}
 --- !u!1 &2136370195
 GameObject:
   m_ObjectHideFlags: 0

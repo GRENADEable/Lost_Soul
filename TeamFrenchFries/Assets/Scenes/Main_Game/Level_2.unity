@@ -1367,7 +1367,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &534339004
 Transform:
   m_ObjectHideFlags: 0
@@ -1470,7 +1470,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 48e93eef0688c4a259cb0eddcd8661f7, type: 3}
-  m_Color: {r: 0, g: 1, b: 0, a: 1}
+  m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -4366,7 +4366,7 @@ MonoBehaviour:
   horrorDimension: {fileID: 905483868}
   pausePanel: {fileID: 1977234038}
   _currLevel: 2
-  endArea: {fileID: 534339003}
+  endArea: {fileID: 534339007}
 --- !u!1 &2136370195
 GameObject:
   m_ObjectHideFlags: 0
