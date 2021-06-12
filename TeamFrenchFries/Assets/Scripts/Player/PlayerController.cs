@@ -169,7 +169,8 @@ public class PlayerController : MonoBehaviour
     {
         _playerAnim.SetBool("IsPicking", false);
         OnLevel2KeyPlaced?.Invoke();
-        Destroy(_pickedKey);
+        _pickedKey.transform.position = _col2D.transform.position;
+        _pickedKey.transform.parent = _col2D.transform;
         _col2D.enabled = false;
         _currKey = 0;
     }

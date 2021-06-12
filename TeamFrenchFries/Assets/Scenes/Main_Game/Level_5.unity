@@ -5187,6 +5187,10 @@ MonoBehaviour:
   horrorDimension: {fileID: 905483868}
   pausePanel: {fileID: 1977234038}
   _currLevel: 4
+  dimensionDelay: 1
+  dimensionTimerText: {fileID: 0}
+  hudPanel: {fileID: 0}
+  deathPanel: {fileID: 0}
 --- !u!1 &2136370195
 GameObject:
   m_ObjectHideFlags: 0
