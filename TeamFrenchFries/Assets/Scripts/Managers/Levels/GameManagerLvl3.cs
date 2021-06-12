@@ -6,16 +6,18 @@ public class GameManagerLvl3 : GameManagerBase
 {
     #region Public Variables
     [Space, Header("End Area")]
-    public Collider2D endAreaCol;
-    public SpriteRenderer endArea;
+    public Collider2D endCol2D;
+    public SpriteRenderer endDoorImg;
+    public Sprite openDoorImg;
     public SpriteRenderer[] pressurePlateImg;
+    public Sprite pressedPlateImg;
     #endregion
 
     #region Private Variables
-    private bool _hitPlate1;
-    private bool _hitPlate2;
-    private bool _hitPlate3;
-    private bool _hitPlate4;
+    [SerializeField] private bool _hitPlate1;
+    [SerializeField] private bool _hitPlate2;
+    [SerializeField] private bool _hitPlate3;
+    [SerializeField] private bool _hitPlate4;
     #endregion
 
     #region Unity Callbacks
@@ -59,31 +61,31 @@ public class GameManagerLvl3 : GameManagerBase
         if (index == 1)
         {
             _hitPlate1 = true;
-            pressurePlateImg[0].color = Color.green;
+            pressurePlateImg[0].sprite = pressedPlateImg;
         }
 
         if (index == 2 && _hitPlate1)
         {
             _hitPlate2 = true;
-            pressurePlateImg[1].color = Color.green;
+            pressurePlateImg[1].sprite = pressedPlateImg;
         }
 
         if (index == 3 && _hitPlate2)
         {
             _hitPlate3 = true;
-            pressurePlateImg[2].color = Color.green;
+            pressurePlateImg[2].sprite = pressedPlateImg;
         }
 
         if (index == 4 && _hitPlate3)
         {
             _hitPlate4 = true;
-            pressurePlateImg[3].color = Color.green;
+            pressurePlateImg[3].sprite = pressedPlateImg;
         }
 
         if (_hitPlate4)
         {
-            endArea.color = Color.green;
-            endAreaCol.enabled = true;
+            endDoorImg.sprite = openDoorImg;
+            endCol2D.enabled = true;
         }
     }
     #endregion
