@@ -34,7 +34,12 @@ public class PlayerController : MonoBehaviour
         {
             PlayerInputs();
         }
-
+        else
+        {
+            _playerAnim.SetFloat("Horizontal", 0f);
+            _playerAnim.SetFloat("Vertical", 0f);
+            _playerAnim.SetFloat("Speed", 0f);
+        }
     }
 
     void FixedUpdate()

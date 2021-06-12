@@ -35,6 +35,7 @@ public class GameManagerMenu : MonoBehaviour
 
     #region My Functions
     public void OnClick_NewGame() => StartCoroutine(StartGameDelay());
+    public void OnClick_QuitGame() => StartCoroutine(ExitGameDelay());
 
     void UIButtons()
     {
@@ -49,7 +50,15 @@ public class GameManagerMenu : MonoBehaviour
         UIButtons();
         fadeBG.Play("FadeOut");
         yield return new WaitForSeconds(1f);
-        Application.LoadLevel("Level_1");
+        gmData.StartNewGame();
+    }
+
+    IEnumerator ExitGameDelay()
+    {
+        UIButtons();
+        fadeBG.Play("FadeOut");
+        yield return new WaitForSeconds(1f);
+        gmData.QuitGame();
     }
     #endregion
 }

@@ -16,6 +16,9 @@ public class GameManager : MonoBehaviour
     public float switchDelay = 1f;
     public GameObject normalDimension;
     public GameObject horrorDimension;
+
+    [Space, Header("Pause Panel")]
+    public GameObject pausePanel;
     #endregion
 
     #region Private Variables
@@ -50,10 +53,50 @@ public class GameManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space) && gmData.currState != GameMangerData.GameState.Switch)
             StartCoroutine(SwitchDimensionDelay());
+
+        if (Input.GetKeyDown(KeyCode.Tab) && gmData.currState == GameMangerData.GameState.Game)
+            PauseGame();
     }
     #endregion
 
     #region My Functions
+
+    #region Buttons
+    public void OnClick_Resume()
+    {
+        DisableCursor();
+        gmData.ChangeState("Game");
+        pausePanel.SetActive(false);
+    }
+
+    public void OnClick_Restart() => StartCoroutine(RestartGameDelay());
+
+    public void OnClick_Menu() => StartCoroutine(MenuDelay());
+
+    public void OnClick_Quit() => StartCoroutine(QuitDelay());
+    #endregion
+
+    void PauseGame()
+    {
+        EnableCursor();
+        gmData.ChangeState("Paused");
+        pausePanel.SetActive(true);
+    }
+
+    #region Cursor
+    void EnableCursor()
+    {
+        gmData.LockCursor(false);
+        gmData.VisibleCursor(true);
+    }
+
+    void DisableCursor()
+    {
+        gmData.LockCursor(true);
+        gmData.VisibleCursor(false);
+    }
+    #endregion
+
     #endregion
 
     #region Events
@@ -67,10 +110,33 @@ public class GameManager : MonoBehaviour
     #region Coroutines
     IEnumerator StartGameDelay()
     {
+        DisableCursor();
         fadeBG.Play("FadeIn");
         gmData.ChangeState("Intro");
         yield return new WaitForSeconds(1f);
         gmData.ChangeState("Game");
+    }
+
+    IEnumerator RestartGameDelay()
+    {
+        DisableCursor();
+        fadeBG.Play("FadeOut");
+        yield return new WaitForSeconds(1f);
+        gmData.NextLevel(_currLevel);
+    }
+
+    IEnumerator MenuDelay()
+    {
+        fadeBG.Play("FadeOut");
+        yield return new WaitForSeconds(1f);
+        gmData.Menu();
+    }
+
+    IEnumerator QuitDelay()
+    {
+        fadeBG.Play("FadeOut");
+        yield return new WaitForSeconds(1f);
+        gmData.QuitGame();
     }
 
     IEnumerator SwitchDimensionDelay()
@@ -89,7 +155,7 @@ public class GameManager : MonoBehaviour
         fadeFastBG.Play("FadeOut");
         gmData.ChangeState("Switch");
         yield return new WaitForSeconds(1f);
-        Application.LoadLevel($"Level_{_currLevel}");
+        gmData.NextLevel(_currLevel);
     }
     #endregion
 }

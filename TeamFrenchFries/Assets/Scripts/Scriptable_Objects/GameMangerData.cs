@@ -12,8 +12,10 @@ public class GameMangerData : ScriptableObject
     #region My Functions
 
     #region Scenes
-    public void StartNewGame() => Application.LoadLevel("Skate_Store_Main");
-    public void Menu() => Application.LoadLevel("Skate_Store_Menu");
+    public void StartNewGame() => Application.LoadLevel("Level_1");
+    public void Menu() => Application.LoadLevel("Menu");
+
+    public void NextLevel(int index) => Application.LoadLevel($"Level_{index}");
 
     public void QuitGame()
     {
