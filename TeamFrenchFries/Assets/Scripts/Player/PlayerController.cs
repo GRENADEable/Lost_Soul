@@ -17,13 +17,15 @@ public class PlayerController : MonoBehaviour
     #region Private Variables
     private Rigidbody2D _rg2D;
     private Vector2 _moveDirection;
-    private int _currKey = 0;
+    private Animator _playerAnim;
+    //private int _currKey = 0;
     #endregion
 
     #region Unity Callbacks
     void Start()
     {
         _rg2D = GetComponent<Rigidbody2D>();
+        _playerAnim = GetComponent<Animator>();
     }
 
     void Update()
@@ -53,6 +55,11 @@ public class PlayerController : MonoBehaviour
     {
         _moveDirection.x = Input.GetAxisRaw("Horizontal");
         _moveDirection.y = Input.GetAxisRaw("Vertical");
+
+        _playerAnim.SetFloat("Horizontal", _moveDirection.x);
+        _playerAnim.SetFloat("Vertical", _moveDirection.y);
+        _playerAnim.SetFloat("Speed", _moveDirection.sqrMagnitude);
+
         _moveDirection = _moveDirection.normalized;
     }
     #endregion
