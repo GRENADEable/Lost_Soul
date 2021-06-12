@@ -466,7 +466,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 2129772731}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_TargetAssemblyTypeName: GameManagerBase, Assembly-CSharp
         m_MethodName: OnClick_Quit
         m_Mode: 1
         m_Arguments:
@@ -869,7 +869,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 2129772731}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_TargetAssemblyTypeName: GameManagerBase, Assembly-CSharp
         m_MethodName: OnClick_Restart
         m_Mode: 1
         m_Arguments:
@@ -1052,13 +1052,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 360257484}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: 0.70710677, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2, y: 10, z: 0}
+  m_LocalScale: {x: 1.2190434, y: 10, z: 0}
   m_Children: []
   m_Father: {fileID: 655636215}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!61 &360257486
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1236,6 +1236,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gmData: {fileID: 11400000, guid: 1df56b25f0967134cbb06115688822ef, type: 2}
   playerSpeed: 5
+  _col2D: {fileID: 0}
+  _currKey: 0
 --- !u!61 &375147891
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1811,36 +1813,6 @@ MonoBehaviour:
   followSpeed: 5
   stoppingDistance: 0.5
   followTarget: {fileID: 375147889}
---- !u!1 &609610901
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 609610902}
-  m_Layer: 0
-  m_Name: Level_1_Start_Pos
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &609610902
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 609610901}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.876, y: -3.357, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1318847295}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &655636214
 GameObject:
   m_ObjectHideFlags: 0
@@ -1874,7 +1846,7 @@ Transform:
   - {fileID: 1506746332}
   - {fileID: 1831058340}
   m_Father: {fileID: 1318847295}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &705507993
 GameObject:
@@ -2053,7 +2025,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 2129772731}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_TargetAssemblyTypeName: GameManagerBase, Assembly-CSharp
         m_MethodName: OnClick_Resume
         m_Mode: 1
         m_Arguments:
@@ -2414,7 +2386,7 @@ Transform:
   m_LocalScale: {x: 10, y: 8, z: 0}
   m_Children: []
   m_Father: {fileID: 1318847295}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1234549454
 GameObject:
@@ -2718,7 +2690,6 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 609610902}
   - {fileID: 655636215}
   - {fileID: 1229149709}
   - {fileID: 2003214350}
@@ -3120,7 +3091,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 0.85714287}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &1571088613
@@ -3591,11 +3562,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2003214349}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.488, y: 0, z: 0}
+  m_LocalPosition: {x: -0.01, y: 3.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1318847295}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &2003214351
 BoxCollider2D:
@@ -3779,7 +3750,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 2129772731}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_TargetAssemblyTypeName: GameManagerBase, Assembly-CSharp
         m_MethodName: OnClick_Menu
         m_Mode: 1
         m_Arguments:
@@ -3953,7 +3924,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2129772729}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bcfc3f932c902f4499411d9f7af4a63e, type: 3}
+  m_Script: {fileID: 11500000, guid: 29590ca893d79a441ba4a62b4648dfc9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   gmData: {fileID: 11400000, guid: 1df56b25f0967134cbb06115688822ef, type: 2}

@@ -26,11 +26,6 @@ public class GameManagerMenu : MonoBehaviour
         gmData.ChangeState("Menu");
         fadeBG.Play("FadeIn");
     }
-
-    void Update()
-    {
-
-    }
     #endregion
 
     #region My Functions

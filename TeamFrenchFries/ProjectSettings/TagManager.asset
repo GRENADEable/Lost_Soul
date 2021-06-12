@@ -5,6 +5,12 @@ TagManager:
   serializedVersion: 2
   tags:
   - EndArea
+  - Key
+  - Plate
+  - Press_1
+  - Press_2
+  - Press_3
+  - Press_4
   layers:
   - Default
   - TransparentFX
