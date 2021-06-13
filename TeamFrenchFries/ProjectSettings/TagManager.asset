@@ -13,6 +13,7 @@ TagManager:
   - Press_4
   - Safe_Zone
   - Death_Zone
+  - End_Zone
   layers:
   - Default
   - TransparentFX

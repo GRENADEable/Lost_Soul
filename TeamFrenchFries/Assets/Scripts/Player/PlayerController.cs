@@ -17,6 +17,7 @@ public class PlayerController : MonoBehaviour
     public static event SendEvents OnLevelEnded;
     public static event SendEvents OnLevel2KeyPlaced;
     public static event SendEvents OnVoidDeath;
+    public static event SendEvents OnGameEnd;
 
     public delegate void SendEventsInt(int index);
     public static event SendEventsInt OnPressurePlatePressed;
@@ -77,13 +78,13 @@ public class PlayerController : MonoBehaviour
             other.CompareTag("Press_3") || other.CompareTag("Press_4"))
             _col2D = other;
 
-        if (other.CompareTag("Safe_Zone"))
-            Debug.Log("Safe");
-
         if (other.CompareTag("Death_Zone"))
-        {
             OnVoidDeath?.Invoke();
-            Debug.Log("Dead");
+
+        if (other.CompareTag("End_Zone"))
+        {
+            other.enabled = false;
+            OnGameEnd?.Invoke();
         }
     }
 
