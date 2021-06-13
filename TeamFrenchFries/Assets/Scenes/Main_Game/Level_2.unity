@@ -1942,7 +1942,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &905483869
 Transform:
   m_ObjectHideFlags: 0
@@ -3303,7 +3303,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1318847295
 Transform:
   m_ObjectHideFlags: 0
@@ -4628,6 +4628,8 @@ MonoBehaviour:
   normalDimension: {fileID: 1318847294}
   horrorDimension: {fileID: 905483868}
   pausePanel: {fileID: 1977234038}
+  humanDimensionAud: []
+  spiritDimensionAud: []
   _currLevel: 2
   endCol2D: {fileID: 955660830}
   endDoorImg: {fileID: 955660832}
