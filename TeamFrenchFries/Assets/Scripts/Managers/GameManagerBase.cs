@@ -20,7 +20,7 @@ public class GameManagerBase : MonoBehaviour
     [Space, Header("Pause Panel")]
     public GameObject pausePanel;
 
-    [Space, Header("Audios")]
+    [Space, Header("Audio")]
     public AudioSource[] humanDimensionAud;
     public AudioSource[] spiritDimensionAud;
     #endregion
@@ -105,6 +105,10 @@ public class GameManagerBase : MonoBehaviour
     }
     #endregion
 
+    #region Settings
+    public void OnToggleSetFullScreen(bool isFullscreen) => Screen.fullScreen = isFullscreen;
+    #endregion
+
     void CheckDimension()
     {
         if (normalDimension.activeInHierarchy)
@@ -118,7 +122,6 @@ public class GameManagerBase : MonoBehaviour
             HumanDimensionAudio(false);
             SpiritDimensionAudio(true);
         }
-
     }
 
     protected void PauseGame()
@@ -172,6 +175,7 @@ public class GameManagerBase : MonoBehaviour
 
     IEnumerator MenuDelay()
     {
+        gmData.SetVolSettings();
         fadeBG.Play("FadeOut");
         yield return new WaitForSeconds(1f);
         gmData.Menu();
@@ -179,6 +183,7 @@ public class GameManagerBase : MonoBehaviour
 
     IEnumerator QuitDelay()
     {
+        gmData.SetVolSettings();
         fadeBG.Play("FadeOut");
         yield return new WaitForSeconds(1f);
         gmData.QuitGame();
