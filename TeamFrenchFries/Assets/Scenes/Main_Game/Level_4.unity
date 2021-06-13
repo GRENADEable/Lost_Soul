@@ -4147,7 +4147,7 @@ Transform:
   - {fileID: 1090100774}
   - {fileID: 786732063}
   m_Father: {fileID: 2120294741}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &553666764
 GameObject:
@@ -10634,7 +10634,7 @@ Transform:
   - {fileID: 1760119116}
   - {fileID: 1277073006}
   m_Father: {fileID: 2120294741}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1603140625
 GameObject:
@@ -13541,9 +13541,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: e3698db006908514196cace7f9c47ff0, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 11d96c3001056c24c87a1620b9c8692c, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.8
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -14099,8 +14099,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 1597785114}
   - {fileID: 547619263}
+  - {fileID: 1597785114}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
