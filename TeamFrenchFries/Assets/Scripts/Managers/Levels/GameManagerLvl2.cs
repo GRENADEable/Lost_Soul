@@ -37,7 +37,11 @@ public class GameManagerLvl2 : GameManagerBase
     }
     #endregion
 
-    void Start() => StartCoroutine(StartGameDelay());
+    void Start()
+    {
+        StartCoroutine(StartGameDelay());
+        HumanDimensionAudio(true);
+    }
 
     void Update()
     {

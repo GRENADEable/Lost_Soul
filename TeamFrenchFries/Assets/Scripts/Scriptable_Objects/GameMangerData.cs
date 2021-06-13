@@ -7,7 +7,7 @@ public class GameMangerData : ScriptableObject
 {
     [Space, Header("Enums")]
     public GameState currState = GameState.Game;
-    public enum GameState { Menu, Intro, Game, Dead, Switch, Paused, Exit };
+    public enum GameState { Menu, Intro, Game, Dead, Switch, Paused, End };
 
     #region My Functions
 
@@ -72,8 +72,8 @@ public class GameMangerData : ScriptableObject
         if (state.Contains("Paused"))
             currState = GameState.Paused;
 
-        if (state.Contains("Exit"))
-            currState = GameState.Exit;
+        if (state.Contains("End"))
+            currState = GameState.End;
 
     }
     #endregion

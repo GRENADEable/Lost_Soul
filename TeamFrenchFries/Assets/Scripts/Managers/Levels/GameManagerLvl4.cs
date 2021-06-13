@@ -13,6 +13,9 @@ public class GameManagerLvl4 : GameManagerBase
     [Space, Header("Panels")]
     public GameObject hudPanel;
     public GameObject deathPanel;
+
+    [Space, Header("Audios")]
+    public AudioSource deathAud;
     #endregion
 
     #region Private Variables
@@ -42,7 +45,11 @@ public class GameManagerLvl4 : GameManagerBase
     }
     #endregion
 
-    void Start() => StartCoroutine(StartGameDelay());
+    void Start()
+    {
+        StartCoroutine(StartGameDelay());
+        HumanDimensionAudio(true);
+    }
 
     void Update()
     {
@@ -80,6 +87,8 @@ public class GameManagerLvl4 : GameManagerBase
         fadeFastBG.Play("FadeOut");
         gmData.ChangeState("Switch");
         yield return new WaitForSeconds(switchDelay);
+        HumanDimensionAudio(false);
+        SpiritDimensionAudio(true);
         hudPanel.SetActive(true);
         _currTimer = dimensionDelay;
         _isSwitched = true;
@@ -94,6 +103,8 @@ public class GameManagerLvl4 : GameManagerBase
         fadeFastBG.Play("FadeOut");
         gmData.ChangeState("Switch");
         yield return new WaitForSeconds(switchDelay);
+        SpiritDimensionAudio(false);
+        HumanDimensionAudio(true);
         hudPanel.SetActive(false);
         _currTimer = dimensionDelay;
         _isSwitched = false;
@@ -106,11 +117,12 @@ public class GameManagerLvl4 : GameManagerBase
 
     IEnumerator DeathScreenDelay()
     {
-        fadeFastBG.Play("FadeOut");
+        fadeBG.Play("FadeOut");
+        deathAud.Play();
         gmData.ChangeState("Dead");
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(1f);
         EnableCursor();
-        fadeFastBG.Play("FadeIn");
+        fadeBG.Play("FadeIn");
         hudPanel.SetActive(false);
         deathPanel.SetActive(true);
     }

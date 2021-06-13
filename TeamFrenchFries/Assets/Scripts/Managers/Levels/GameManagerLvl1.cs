@@ -14,7 +14,11 @@ public class GameManagerLvl1 : GameManagerBase
     void OnDestroy() => PlayerController.OnLevelEnded -= OnLevelEndedEventReceived;
     #endregion
 
-    void Start() => StartCoroutine(StartGameDelay());
+    void Start()
+    {
+        StartCoroutine(StartGameDelay());
+        HumanDimensionAudio(true);
+    }
 
     void Update()
     {

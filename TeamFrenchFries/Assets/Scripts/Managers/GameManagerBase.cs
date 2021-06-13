@@ -19,6 +19,10 @@ public class GameManagerBase : MonoBehaviour
 
     [Space, Header("Pause Panel")]
     public GameObject pausePanel;
+
+    [Space, Header("Audios")]
+    public AudioSource[] humanDimensionAud;
+    public AudioSource[] spiritDimensionAud;
     #endregion
 
     #region Private Variables
@@ -62,6 +66,60 @@ public class GameManagerBase : MonoBehaviour
 
     public void OnClick_Quit() => StartCoroutine(QuitDelay());
     #endregion
+
+    #region Audio
+    public void HumanDimensionAudio(bool enabled)
+    {
+        if (enabled)
+        {
+            for (int i = 0; i < humanDimensionAud.Length; i++)
+                humanDimensionAud[i].Play();
+
+            Debug.Log("Enabled Human Audio");
+        }
+        else
+        {
+            for (int i = 0; i < humanDimensionAud.Length; i++)
+                humanDimensionAud[i].Stop();
+
+            Debug.Log("Disabled Human Audio");
+        }
+    }
+
+    public void SpiritDimensionAudio(bool enabled)
+    {
+        if (enabled)
+        {
+            for (int i = 0; i < spiritDimensionAud.Length; i++)
+                spiritDimensionAud[i].Play();
+
+            Debug.Log("Enabled Spirit Audio");
+        }
+        else
+        {
+            for (int i = 0; i < spiritDimensionAud.Length; i++)
+                spiritDimensionAud[i].Stop();
+
+            Debug.Log("Disabled Spirit Audio");
+        }
+    }
+    #endregion
+
+    void CheckDimension()
+    {
+        if (normalDimension.activeInHierarchy)
+        {
+            SpiritDimensionAudio(false);
+            HumanDimensionAudio(true);
+        }
+
+        if (horrorDimension.activeInHierarchy)
+        {
+            HumanDimensionAudio(false);
+            SpiritDimensionAudio(true);
+        }
+
+    }
 
     protected void PauseGame()
     {
@@ -133,6 +191,7 @@ public class GameManagerBase : MonoBehaviour
         yield return new WaitForSeconds(switchDelay);
         normalDimension.SetActive(!normalDimension.activeSelf);
         horrorDimension.SetActive(!horrorDimension.activeSelf);
+        CheckDimension();
         fadeFastBG.Play("FadeIn");
         gmData.ChangeState("Game");
     }

@@ -24,7 +24,11 @@ public class GameManagerLvl5 : GameManagerBase
     void OnDestroy() => PlayerController.OnGameEnd -= OnGameEndEventReceived;
     #endregion
 
-    void Start() => StartCoroutine(StartGameDelay());
+    void Start()
+    {
+        StartCoroutine(StartGameDelay());
+        SpiritDimensionAudio(true);
+    }
 
     void Update()
     {
@@ -33,24 +37,17 @@ public class GameManagerLvl5 : GameManagerBase
     }
     #endregion
 
-    #region My Functions
-
-    #endregion
-
     #region Events
+    public void OnShhStarted()
+    {
+        SpiritDimensionAudio(false);
+        gmData.ChangeState("End");
+    }
+
     void OnGameEndEventReceived()
     {
         _canExit = false;
         endOutroTimeline.Play();
-        //StartCoroutine(EndGameDelay());
     }
-    #endregion
-
-    #region Coroutines
-    //IEnumerator EndGameDelay()
-    //{
-    //    _canExit = false;
-    //    yield return new WaitForSeconds(1f);
-    //}
     #endregion
 }
