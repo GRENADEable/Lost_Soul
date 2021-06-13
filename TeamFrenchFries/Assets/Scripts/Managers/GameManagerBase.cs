@@ -23,6 +23,7 @@ public class GameManagerBase : MonoBehaviour
     [Space, Header("Audio")]
     public AudioSource[] humanDimensionAud;
     public AudioSource[] spiritDimensionAud;
+    public PlayerFootsteps plyFootsteps;
     #endregion
 
     #region Private Variables
@@ -115,12 +116,14 @@ public class GameManagerBase : MonoBehaviour
         {
             SpiritDimensionAudio(false);
             HumanDimensionAudio(true);
+            plyFootsteps.currDiemsion = PlayerFootsteps.DimensionState.Human;
         }
 
         if (horrorDimension.activeInHierarchy)
         {
             HumanDimensionAudio(false);
             SpiritDimensionAudio(true);
+            plyFootsteps.currDiemsion = PlayerFootsteps.DimensionState.Spirit;
         }
     }
 
@@ -175,7 +178,6 @@ public class GameManagerBase : MonoBehaviour
 
     IEnumerator MenuDelay()
     {
-        gmData.SetVolSettings();
         fadeBG.Play("FadeOut");
         yield return new WaitForSeconds(1f);
         gmData.Menu();
@@ -183,7 +185,6 @@ public class GameManagerBase : MonoBehaviour
 
     IEnumerator QuitDelay()
     {
-        gmData.SetVolSettings();
         fadeBG.Play("FadeOut");
         yield return new WaitForSeconds(1f);
         gmData.QuitGame();

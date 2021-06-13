@@ -9,10 +9,6 @@ public class GameMangerData : ScriptableObject
     public GameState currState = GameState.Game;
     public enum GameState { Menu, Intro, Game, Dead, Switch, Paused, End };
 
-    [Space, Header("Audio")]
-    [Range(0.0001f, 1f)] public float musicVolume = 1f;
-    [Range(0.0001f, 1f)] public float sfxVolume = 1f;
-
     #region My Functions
 
     #region Scenes
@@ -79,14 +75,6 @@ public class GameMangerData : ScriptableObject
         if (state.Contains("End"))
             currState = GameState.End;
 
-    }
-    #endregion
-
-    #region AudioSettings
-    public void SetVolSettings()
-    {
-        PlayerPrefs.SetFloat("musicVol", musicVolume);
-        PlayerPrefs.SetFloat("sfxVol", sfxVolume);
     }
     #endregion
 

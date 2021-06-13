@@ -9,6 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2493776852554196989}
+  - component: {fileID: 823155366822080314}
+  - component: {fileID: 2470129168794067087}
   m_Layer: 0
   m_Name: Pick_Key_Pos
   m_TagString: Untagged
@@ -30,6 +32,45 @@ Transform:
   m_Father: {fileID: 5913216636663192828}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &823155366822080314
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1573263632642601669}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 7154576ef92548e4cbb90939fe24cfba, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &2470129168794067087
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1573263632642601669}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e23180362801dd4448df831d532d1fb1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gmData: {fileID: 11400000, guid: 1df56b25f0967134cbb06115688822ef, type: 2}
+  currDiemsion: 0
+  footstepSFXAud: {fileID: 0}
+  footstepsClips:
+  - {fileID: 8300000, guid: 798c1d0e526c8944abe565f333a1ee74, type: 3}
+  - {fileID: 8300000, guid: 4a9c81aadf7293744858544935d639d9, type: 3}
+  - {fileID: 8300000, guid: 49a3bf4af236e774898512394ec86512, type: 3}
+  - {fileID: 8300000, guid: 53af3aadb2f0ede4fb8725b5f0c00be5, type: 3}
 --- !u!1 &5913216636663192830
 GameObject:
   m_ObjectHideFlags: 0
@@ -105,7 +146,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 69
   m_Sprite: {fileID: 21300000, guid: e52274c4ffa938b4a9b81e2e6f1be42c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -198,4 +239,4 @@ MonoBehaviour:
   gmData: {fileID: 11400000, guid: 1df56b25f0967134cbb06115688822ef, type: 2}
   playerSpeed: 3
   pickKeyPos: {fileID: 2493776852554196989}
-  plateImg: {fileID: 21300000, guid: 625fd76072487cf4ab4b11a0655be9cc, type: 3}
+  playerFootStepAnim: {fileID: 823155366822080314}

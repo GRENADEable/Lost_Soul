@@ -86,7 +86,6 @@ public class GameManagerMenu : GameManagerBase
 
     IEnumerator ExitGameDelay()
     {
-        gmData.SetVolSettings();
         UIButtons();
         fadeBG.Play("FadeOut");
         yield return new WaitForSeconds(1f);

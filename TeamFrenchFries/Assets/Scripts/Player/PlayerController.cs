@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour
     [Space, Header("Player")]
     public float playerSpeed = 1f;
     public Transform pickKeyPos;
+    public Animator playerFootStepAnim;
 
     #region Events
     public delegate void SendEvents();
@@ -47,6 +48,7 @@ public class PlayerController : MonoBehaviour
         {
             PlayerInputs();
             CheckInteraction();
+            FootStepsCheck();
         }
         else
         {
@@ -117,6 +119,19 @@ public class PlayerController : MonoBehaviour
     #endregion
 
     #region My Functions
+
+    #region Footsteps
+
+    void FootStepsCheck()
+    {
+        if (_moveDirection != Vector2.zero)
+            playerFootStepAnim.SetBool("isMoving", true);
+        else
+            playerFootStepAnim.SetBool("isMoving", false);
+    }
+    #endregion
+
+    #region Inputs
     void PlayerInputs()
     {
         _moveDirection.x = Input.GetAxisRaw("Horizontal");
@@ -127,6 +142,7 @@ public class PlayerController : MonoBehaviour
         _moveDirection = _moveDirection.normalized;
         _playerAnim.SetFloat("Speed", _moveDirection.sqrMagnitude);
     }
+    #endregion
 
     #region Interaction
     void CheckInteraction()
@@ -137,22 +153,6 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.E) && _col2D != null
             && _col2D.CompareTag("Plate") && _currKey == 1)
             InteractPlate();
-
-        //if (Input.GetKeyDown(KeyCode.E) && _col2D != null
-        //    && _col2D.CompareTag("Press_1"))
-        //    OnPressurePlatePressed?.Invoke(1);
-
-        //if (Input.GetKeyDown(KeyCode.E) && _col2D != null
-        //    && _col2D.CompareTag("Press_2"))
-        //    OnPressurePlatePressed?.Invoke(2);
-
-        //if (Input.GetKeyDown(KeyCode.E) && _col2D != null
-        //   && _col2D.CompareTag("Press_3"))
-        //    OnPressurePlatePressed?.Invoke(3);
-
-        //if (Input.GetKeyDown(KeyCode.E) && _col2D != null
-        //   && _col2D.CompareTag("Press_4"))
-        //    OnPressurePlatePressed?.Invoke(4);
     }
 
     void PickKey()
