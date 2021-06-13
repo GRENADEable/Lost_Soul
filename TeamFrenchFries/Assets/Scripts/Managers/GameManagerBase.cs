@@ -21,6 +21,7 @@ public class GameManagerBase : MonoBehaviour
     public GameObject pausePanel;
 
     [Space, Header("Audio")]
+    public AudioSource buttonSFXAud;
     public AudioSource[] humanDimensionAud;
     public AudioSource[] spiritDimensionAud;
     public PlayerFootsteps plyFootsteps;
@@ -56,16 +57,29 @@ public class GameManagerBase : MonoBehaviour
     #region Buttons
     public void OnClick_Resume()
     {
+        buttonSFXAud.Play();
         DisableCursor();
         gmData.ChangeState("Game");
         pausePanel.SetActive(false);
     }
 
-    public void OnClick_Restart() => StartCoroutine(RestartGameDelay());
+    public void OnClick_Restart()
+    {
+        buttonSFXAud.Play();
+        StartCoroutine(RestartGameDelay());
+    }
 
-    public void OnClick_Menu() => StartCoroutine(MenuDelay());
+    public void OnClick_Menu()
+    {
+        buttonSFXAud.Play();
+        StartCoroutine(MenuDelay());
+    }
 
-    public void OnClick_Quit() => StartCoroutine(QuitDelay());
+    public void OnClick_Quit()
+    {
+        buttonSFXAud.Play();
+        StartCoroutine(QuitDelay());
+    }
     #endregion
 
     #region Audio
@@ -161,7 +175,7 @@ public class GameManagerBase : MonoBehaviour
     #region Coroutines
     protected IEnumerator StartGameDelay()
     {
-        //DisableCursor();
+        DisableCursor();
         fadeBG.Play("FadeIn");
         gmData.ChangeState("Intro");
         yield return new WaitForSeconds(1f);

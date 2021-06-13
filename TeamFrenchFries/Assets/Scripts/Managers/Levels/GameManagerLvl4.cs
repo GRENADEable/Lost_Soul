@@ -56,7 +56,7 @@ public class GameManagerLvl4 : GameManagerBase
         if (Input.GetKeyDown(KeyCode.Space) && gmData.currState == GameMangerData.GameState.Game && !_isSwitched)
             StartCoroutine(SwitchToHorrorDimensionDelay());
 
-        if (Input.GetKeyDown(KeyCode.Tab) && gmData.currState == GameMangerData.GameState.Game)
+        if (Input.GetKeyDown(KeyCode.Escape) && gmData.currState == GameMangerData.GameState.Game)
             PauseGame();
 
         if (_isSwitched && gmData.currState == GameMangerData.GameState.Game)

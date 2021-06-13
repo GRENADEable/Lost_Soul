@@ -49,7 +49,7 @@ public class GameManagerLvl2 : GameManagerBase
             && gmData.currState != GameMangerData.GameState.Paused)
             StartCoroutine(SwitchDimensionDelay());
 
-        if (Input.GetKeyDown(KeyCode.Tab) && gmData.currState == GameMangerData.GameState.Game)
+        if (Input.GetKeyDown(KeyCode.Escape) && gmData.currState == GameMangerData.GameState.Game)
             PauseGame();
     }
     #endregion

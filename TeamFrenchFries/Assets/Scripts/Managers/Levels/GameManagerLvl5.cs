@@ -32,7 +32,7 @@ public class GameManagerLvl5 : GameManagerBase
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Tab) && gmData.currState == GameMangerData.GameState.Game && _canExit)
+        if (Input.GetKeyDown(KeyCode.Escape) && gmData.currState == GameMangerData.GameState.Game && _canExit)
             PauseGame();
     }
     #endregion
