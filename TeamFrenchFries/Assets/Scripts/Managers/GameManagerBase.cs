@@ -23,7 +23,8 @@ public class GameManagerBase : MonoBehaviour
 
     [Space, Header("Audio")]
     public AudioSource buttonSFXAud;
-    public AudioSource deathAud;
+    public AudioSource doorSFXAud;
+    public AudioSource deathSFXAud;
     public AudioSource[] humanDimensionAud;
     public AudioSource[] spiritDimensionAud;
     public PlayerFootsteps plyFootsteps;
@@ -188,7 +189,7 @@ public class GameManagerBase : MonoBehaviour
     protected IEnumerator DeathScreenDelay()
     {
         fadeBG.Play("FadeOut");
-        deathAud.Play();
+        deathSFXAud.Play();
         gmData.ChangeState("Dead");
         yield return new WaitForSeconds(1f);
         EnableCursor();

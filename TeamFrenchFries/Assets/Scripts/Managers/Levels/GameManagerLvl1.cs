@@ -4,11 +4,6 @@ using UnityEngine;
 
 public class GameManagerLvl1 : GameManagerBase
 {
-    #region Public Variables
-    public delegate void SendEvents();
-    public static event SendEvents OnDimensionChanged;
-    #endregion
-
     #region Unity Callbacks
 
     #region Events
@@ -35,6 +30,7 @@ public class GameManagerLvl1 : GameManagerBase
     {
         StartCoroutine(StartGameDelay());
         HumanDimensionAudio(true);
+        doorSFXAud.Play();
     }
 
     void Update()

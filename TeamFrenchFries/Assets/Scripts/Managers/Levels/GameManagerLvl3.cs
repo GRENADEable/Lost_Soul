@@ -93,6 +93,7 @@ public class GameManagerLvl3 : GameManagerBase
         {
             endDoorImg.sprite = openDoorImg;
             endCol2D.enabled = true;
+            doorSFXAud.Play();
         }
     }
 

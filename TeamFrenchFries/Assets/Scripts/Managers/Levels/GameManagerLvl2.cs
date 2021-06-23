@@ -63,6 +63,7 @@ public class GameManagerLvl2 : GameManagerBase
         endDoorImg.sprite = openDoorImg;
         plateImg.sprite = plateOnImg;
         endCol2D.enabled = true;
+        doorSFXAud.Play();
     }
     #endregion
 

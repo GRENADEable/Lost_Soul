@@ -7,7 +7,7 @@ public class GameManagerLvl4 : GameManagerBase
 {
     #region Public Variables
     [Space, Header("Dimension Timer")]
-    public float dimensionDelay = 1f;
+    public float dimensionDelay = 2f;
     public TextMeshProUGUI dimensionTimerText;
     #endregion
 
@@ -42,6 +42,7 @@ public class GameManagerLvl4 : GameManagerBase
     {
         StartCoroutine(StartGameDelay());
         HumanDimensionAudio(true);
+        doorSFXAud.Play();
     }
 
     void Update()
@@ -61,7 +62,7 @@ public class GameManagerLvl4 : GameManagerBase
     void DimensionCounter()
     {
         _currTimer -= Time.deltaTime;
-        dimensionTimerText.text = $"Time Left: {_currTimer.ToString("f0")}";
+        dimensionTimerText.text = $"Time Left: {_currTimer:f0}";
 
         if (_currTimer <= 0)
             StartCoroutine(SwitchToNormalDimensionDelay());
@@ -82,7 +83,6 @@ public class GameManagerLvl4 : GameManagerBase
         yield return new WaitForSeconds(switchDelay);
         HumanDimensionAudio(false);
         SpiritDimensionAudio(true);
-        dimensionTimerText.gameObject.SetActive(true);
         _currTimer = dimensionDelay;
         _isSwitched = true;
         normalDimension.SetActive(false);
@@ -98,8 +98,8 @@ public class GameManagerLvl4 : GameManagerBase
         yield return new WaitForSeconds(switchDelay);
         SpiritDimensionAudio(false);
         HumanDimensionAudio(true);
-        dimensionTimerText.gameObject.SetActive(false);
         _currTimer = dimensionDelay;
+        dimensionTimerText.text = $"Time Left: {_currTimer:f0}";
         _isSwitched = false;
         normalDimension.SetActive(true);
         horrorDimension.SetActive(false);
