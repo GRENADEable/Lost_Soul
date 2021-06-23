@@ -12,6 +12,9 @@ public class GhostController : MonoBehaviour
     public float followSpeed = 5f;
     public float stoppingDistance = 0.5f;
     public Transform followTarget;
+
+    [Space, Header("Joystick")]
+    public Joystick joy;
     #endregion
 
     #region Private Variables
@@ -21,10 +24,7 @@ public class GhostController : MonoBehaviour
     #endregion
 
     #region Unity Callbacks
-    void Start()
-    {
-        _ghostAnim = GetComponent<Animator>();
-    }
+    void Start() => _ghostAnim = GetComponent<Animator>();
 
     void Update()
     {
@@ -53,8 +53,13 @@ public class GhostController : MonoBehaviour
 
     void PlayerInputs()
     {
+#if UNITY_STANDALONE
         _moveDirection.x = Input.GetAxisRaw("Horizontal");
         _moveDirection.y = Input.GetAxisRaw("Vertical");
+#else
+        _moveDirection.x = joy.Horizontal;
+        _moveDirection.y = joy.Vertical;
+#endif
 
         _ghostAnim.SetFloat("Horizontal", _moveDirection.x);
         _ghostAnim.SetFloat("Vertical", _moveDirection.y);

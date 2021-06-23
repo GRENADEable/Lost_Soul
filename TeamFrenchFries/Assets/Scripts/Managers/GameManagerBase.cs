@@ -8,17 +8,17 @@ public class GameManagerBase : MonoBehaviour
     [Space, Header("Data")]
     public GameMangerData gmData;
 
-    [Space, Header("Fade Panel")]
+    [Space, Header("Panels")]
     public Animator fadeBG;
     public Animator fadeFastBG;
+    public Animator hudPanel;
+    public GameObject pausePanel;
+    public GameObject joystickObj;
 
     [Space, Header("Dimensions")]
     public float switchDelay = 1f;
     public GameObject normalDimension;
     public GameObject horrorDimension;
-
-    [Space, Header("Pause Panel")]
-    public GameObject pausePanel;
 
     [Space, Header("Audio")]
     public AudioSource buttonSFXAud;
@@ -34,20 +34,11 @@ public class GameManagerBase : MonoBehaviour
     #region Unity Callbacks
 
     #region Events
-    void OnEnable()
-    {
-        PlayerController.OnLevelEnded += OnLevelEndedEventReceived;
-    }
+    void OnEnable() => PlayerController.OnLevelEnded += OnLevelEndedEventReceived;
 
-    void OnDisable()
-    {
-        PlayerController.OnLevelEnded -= OnLevelEndedEventReceived;
-    }
+    void OnDisable() => PlayerController.OnLevelEnded -= OnLevelEndedEventReceived;
 
-    void OnDestroy()
-    {
-        PlayerController.OnLevelEnded -= OnLevelEndedEventReceived;
-    }
+    void OnDestroy() => PlayerController.OnLevelEnded -= OnLevelEndedEventReceived;
     #endregion
 
     #endregion
@@ -151,14 +142,18 @@ public class GameManagerBase : MonoBehaviour
     #region Cursor
     protected void EnableCursor()
     {
+#if UNITY_STANDALONE
         gmData.LockCursor(false);
         gmData.VisibleCursor(true);
+#endif
     }
 
     protected void DisableCursor()
     {
+#if UNITY_STANDALONE
         gmData.LockCursor(true);
         gmData.VisibleCursor(false);
+#endif
     }
     #endregion
 
@@ -176,6 +171,12 @@ public class GameManagerBase : MonoBehaviour
     protected IEnumerator StartGameDelay()
     {
         DisableCursor();
+#if UNITY_STANDALONE
+        joystickObj.SetActive(false);
+#else
+        joystickObj.SetActive(true);
+#endif
+        hudPanel.Play("FadeIn");
         fadeBG.Play("FadeIn");
         gmData.ChangeState("Intro");
         yield return new WaitForSeconds(1f);
@@ -218,6 +219,7 @@ public class GameManagerBase : MonoBehaviour
 
     IEnumerator StartNextLevelDelay()
     {
+        hudPanel.Play("FadeOut");
         fadeFastBG.Play("FadeOut");
         gmData.ChangeState("Switch");
         yield return new WaitForSeconds(1f);

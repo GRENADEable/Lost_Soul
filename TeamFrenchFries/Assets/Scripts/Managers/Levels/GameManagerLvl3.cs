@@ -14,10 +14,10 @@ public class GameManagerLvl3 : GameManagerBase
     #endregion
 
     #region Private Variables
-    [SerializeField] private bool _hitPlate1;
-    [SerializeField] private bool _hitPlate2;
-    [SerializeField] private bool _hitPlate3;
-    [SerializeField] private bool _hitPlate4;
+    private bool _hitPlate1;
+    private bool _hitPlate2;
+    private bool _hitPlate3;
+    private bool _hitPlate4;
     #endregion
 
     #region Unity Callbacks

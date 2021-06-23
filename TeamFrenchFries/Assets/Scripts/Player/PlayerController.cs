@@ -13,6 +13,9 @@ public class PlayerController : MonoBehaviour
     public Transform pickKeyPos;
     public Animator playerFootStepAnim;
 
+    [Space, Header("Joystick")]
+    public Joystick joy;
+
     #region Events
     public delegate void SendEvents();
     public static event SendEvents OnLevelEnded;
@@ -68,7 +71,7 @@ public class PlayerController : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("EndArea"))
-            OnLevelEnded?.Invoke();
+            OnLevelEnded?.Invoke(); // Event Sent to GameManagerLevels;
 
         if (other.CompareTag("Key"))
             _col2D = other;
@@ -97,10 +100,6 @@ public class PlayerController : MonoBehaviour
 
         if (other.CompareTag("Plate"))
             _col2D = null;
-
-        //if (other.CompareTag("Press_1") || other.CompareTag("Press_2") ||
-        //    other.CompareTag("Press_3") || other.CompareTag("Press_4"))
-        //    _col2D = null;
 
         if (other.CompareTag("Press_1"))
             OnPressurePlatePressed?.Invoke(1);
@@ -134,8 +133,13 @@ public class PlayerController : MonoBehaviour
     #region Inputs
     void PlayerInputs()
     {
+#if UNITY_STANDALONE
         _moveDirection.x = Input.GetAxisRaw("Horizontal");
         _moveDirection.y = Input.GetAxisRaw("Vertical");
+#else
+        _moveDirection.x = joy.Horizontal;
+        _moveDirection.y = joy.Vertical;
+#endif
 
         _playerAnim.SetFloat("Horizontal", _moveDirection.x);
         _playerAnim.SetFloat("Vertical", _moveDirection.y);

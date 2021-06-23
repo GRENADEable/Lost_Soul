@@ -7,7 +7,6 @@ public class GameManagerLvl5 : GameManagerBase
 {
     #region Public Variables
     public PlayableDirector endOutroTimeline;
-    public AudioSource endBGAud;
     #endregion
 
     #region Private Variables

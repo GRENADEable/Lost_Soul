@@ -11,7 +11,6 @@ public class GameManagerLvl4 : GameManagerBase
     public TextMeshProUGUI dimensionTimerText;
 
     [Space, Header("Panels")]
-    public GameObject hudPanel;
     public GameObject deathPanel;
 
     [Space, Header("Audios")]
@@ -89,7 +88,7 @@ public class GameManagerLvl4 : GameManagerBase
         yield return new WaitForSeconds(switchDelay);
         HumanDimensionAudio(false);
         SpiritDimensionAudio(true);
-        hudPanel.SetActive(true);
+        dimensionTimerText.gameObject.SetActive(true);
         _currTimer = dimensionDelay;
         _isSwitched = true;
         normalDimension.SetActive(false);
@@ -105,7 +104,7 @@ public class GameManagerLvl4 : GameManagerBase
         yield return new WaitForSeconds(switchDelay);
         SpiritDimensionAudio(false);
         HumanDimensionAudio(true);
-        hudPanel.SetActive(false);
+        dimensionTimerText.gameObject.SetActive(false);
         _currTimer = dimensionDelay;
         _isSwitched = false;
         normalDimension.SetActive(true);
@@ -123,9 +122,8 @@ public class GameManagerLvl4 : GameManagerBase
         yield return new WaitForSeconds(1f);
         EnableCursor();
         fadeBG.Play("FadeIn");
-        hudPanel.SetActive(false);
+        hudPanel.gameObject.SetActive(false);
         deathPanel.SetActive(true);
     }
-
     #endregion
 }
