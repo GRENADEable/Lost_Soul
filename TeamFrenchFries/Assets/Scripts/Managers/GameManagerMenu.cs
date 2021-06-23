@@ -2,15 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-using UnityEngine.UI;
 using TMPro;
 
 public class GameManagerMenu : GameManagerBase
 {
     #region Public Variables
-    [Space, Header("Buttons")]
-    public Button[] uIButtons;
-
     [Space, Header("Resolutions")]
     public TMP_Dropdown resDropDown;
     #endregion
@@ -29,17 +25,6 @@ public class GameManagerMenu : GameManagerBase
     #endregion
 
     #region My Functions
-
-    #region UI
-    public void OnClick_NewGame() => StartCoroutine(StartNewGameDelay());
-    public void OnClick_QuitGame() => StartCoroutine(ExitGameDelay());
-
-    void UIButtons()
-    {
-        for (int i = 0; i < uIButtons.Length; i++)
-            uIButtons[i].interactable = false;
-    }
-    #endregion
 
     #region Settings
     public void SetRes(int resIndex)
@@ -73,23 +58,5 @@ public class GameManagerMenu : GameManagerBase
     }
     #endregion
 
-    #endregion
-
-    #region Coroutines
-    IEnumerator StartNewGameDelay()
-    {
-        UIButtons();
-        fadeBG.Play("FadeOut");
-        yield return new WaitForSeconds(1f);
-        gmData.StartNewGame();
-    }
-
-    IEnumerator ExitGameDelay()
-    {
-        UIButtons();
-        fadeBG.Play("FadeOut");
-        yield return new WaitForSeconds(1f);
-        gmData.QuitGame();
-    }
     #endregion
 }

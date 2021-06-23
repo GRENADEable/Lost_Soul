@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManagerBase : MonoBehaviour
 {
@@ -15,6 +16,9 @@ public class GameManagerBase : MonoBehaviour
     public GameObject deathPanel;
     public GameObject pausePanel;
     public GameObject joystickObj;
+
+    [Space, Header("Buttons")]
+    public Button[] uIButtons;
 
     [Space, Header("Dimensions")]
     public float switchDelay = 1f;
@@ -49,6 +53,14 @@ public class GameManagerBase : MonoBehaviour
     #region My Functions
 
     #region Buttons
+    public void OnClick_NewGame()
+    {
+        buttonSFXAud.Play();
+        DisableCursor();
+        gmData.ChangeState("Game");
+        StartCoroutine(StartNewGameDelay());
+    }
+
     public void OnClick_Resume()
     {
         buttonSFXAud.Play();
@@ -73,6 +85,12 @@ public class GameManagerBase : MonoBehaviour
     {
         buttonSFXAud.Play();
         StartCoroutine(QuitDelay());
+    }
+
+    void UIButtons()
+    {
+        for (int i = 0; i < uIButtons.Length; i++)
+            uIButtons[i].interactable = false;
     }
     #endregion
 
@@ -171,6 +189,14 @@ public class GameManagerBase : MonoBehaviour
     #endregion
 
     #region Coroutines
+    IEnumerator StartNewGameDelay()
+    {
+        UIButtons();
+        fadeBG.Play("FadeOut");
+        yield return new WaitForSeconds(1f);
+        gmData.StartNewGame();
+    }
+
     protected IEnumerator StartGameDelay()
     {
         DisableCursor();
@@ -201,6 +227,7 @@ public class GameManagerBase : MonoBehaviour
     IEnumerator RestartGameDelay()
     {
         DisableCursor();
+        UIButtons();
         fadeBG.Play("FadeOut");
         yield return new WaitForSeconds(1f);
         gmData.NextLevel(_currLevel);
@@ -208,6 +235,7 @@ public class GameManagerBase : MonoBehaviour
 
     IEnumerator MenuDelay()
     {
+        UIButtons();
         fadeBG.Play("FadeOut");
         yield return new WaitForSeconds(1f);
         gmData.Menu();
@@ -215,6 +243,7 @@ public class GameManagerBase : MonoBehaviour
 
     IEnumerator QuitDelay()
     {
+        UIButtons();
         fadeBG.Play("FadeOut");
         yield return new WaitForSeconds(1f);
         gmData.QuitGame();

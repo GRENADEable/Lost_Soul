@@ -8110,6 +8110,13 @@ MonoBehaviour:
   deathPanel: {fileID: 0}
   pausePanel: {fileID: 1111488232}
   joystickObj: {fileID: 1913689359}
+  uIButtons:
+  - {fileID: 457121472}
+  - {fileID: 1840327889}
+  - {fileID: 1364772584}
+  - {fileID: 311527812}
+  - {fileID: 1599392473}
+  - {fileID: 484885190}
   switchDelay: 0.5
   normalDimension: {fileID: 0}
   horrorDimension: {fileID: 905483868}
