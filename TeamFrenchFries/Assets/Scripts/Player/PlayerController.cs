@@ -50,7 +50,9 @@ public class PlayerController : MonoBehaviour
         if (gmData.currState == GameMangerData.GameState.Game)
         {
             PlayerInputs();
+#if UNITY_STANDALONE
             CheckInteraction();
+#endif
             FootStepsCheck();
         }
         else
@@ -131,6 +133,15 @@ public class PlayerController : MonoBehaviour
     #endregion
 
     #region Inputs
+    public void OnClick_Pick()
+    {
+        if (_col2D != null && _col2D.CompareTag("Key"))
+            PickKey();
+
+        if (_col2D != null && _col2D.CompareTag("Plate") && _currKey == 1)
+            InteractPlate();
+    }
+
     void PlayerInputs()
     {
 #if UNITY_STANDALONE

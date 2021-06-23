@@ -15,10 +15,12 @@ public class GameManagerBase : MonoBehaviour
     public Animator hudPanel;
     public GameObject deathPanel;
     public GameObject pausePanel;
-    public GameObject joystickObj;
 
     [Space, Header("Buttons")]
     public Button[] uIButtons;
+    public GameObject joystickObj;
+    public GameObject interactionObjs;
+    public GameObject pauseButton;
 
     [Space, Header("Dimensions")]
     public float switchDelay = 1f;
@@ -53,6 +55,22 @@ public class GameManagerBase : MonoBehaviour
     #region My Functions
 
     #region Buttons
+
+    #region HUD
+    public void OnClick_SwitchDimension()
+    {
+        if (gmData.currState == GameMangerData.GameState.Game)
+            StartCoroutine(SwitchDimensionDelay());
+    }
+
+    public void OnClick_Pause()
+    {
+        if (gmData.currState == GameMangerData.GameState.Game)
+            PauseGame();
+    }
+    #endregion
+
+    #region Menus
     public void OnClick_NewGame()
     {
         buttonSFXAud.Play();
@@ -67,6 +85,7 @@ public class GameManagerBase : MonoBehaviour
         DisableCursor();
         gmData.ChangeState("Game");
         pausePanel.SetActive(false);
+        hudPanel.gameObject.SetActive(true);
     }
 
     public void OnClick_Restart()
@@ -92,6 +111,8 @@ public class GameManagerBase : MonoBehaviour
         for (int i = 0; i < uIButtons.Length; i++)
             uIButtons[i].interactable = false;
     }
+    #endregion
+
     #endregion
 
     #region Audio
@@ -155,6 +176,8 @@ public class GameManagerBase : MonoBehaviour
 
     protected void PauseGame()
     {
+        hudPanel.gameObject.SetActive(false);
+        buttonSFXAud.Play();
         EnableCursor();
         gmData.ChangeState("Paused");
         pausePanel.SetActive(true);
@@ -202,8 +225,12 @@ public class GameManagerBase : MonoBehaviour
         DisableCursor();
 #if UNITY_STANDALONE
         joystickObj.SetActive(false);
+        interactionObjs.SetActive(false);
+        pauseButton.SetActive(false);
 #else
         joystickObj.SetActive(true);
+        interactionObjs.SetActive(true);
+        pauseButton.SetActive(true);
 #endif
         hudPanel.Play("FadeIn");
         fadeBG.Play("FadeIn");

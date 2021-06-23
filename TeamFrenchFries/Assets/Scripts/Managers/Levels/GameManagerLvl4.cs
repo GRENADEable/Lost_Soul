@@ -44,21 +44,29 @@ public class GameManagerLvl4 : GameManagerBase
         HumanDimensionAudio(true);
         doorSFXAud.Play();
     }
-
     void Update()
     {
+#if UNITY_STANDALONE
         if (Input.GetKeyDown(KeyCode.Space) && gmData.currState == GameMangerData.GameState.Game && !_isSwitched)
             StartCoroutine(SwitchToHorrorDimensionDelay());
 
         if (Input.GetKeyDown(KeyCode.Escape) && gmData.currState == GameMangerData.GameState.Game)
             PauseGame();
+#endif
 
         if (_isSwitched && gmData.currState == GameMangerData.GameState.Game)
             DimensionCounter();
     }
+
     #endregion
 
     #region My Functions
+    public void OnClick_SwitchDimensionForLvl4()
+    {
+        if (gmData.currState == GameMangerData.GameState.Game)
+            StartCoroutine(SwitchToHorrorDimensionDelay());
+    }
+
     void DimensionCounter()
     {
         _currTimer -= Time.deltaTime;

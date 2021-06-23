@@ -29,11 +29,14 @@ public class GameManagerLvl5 : GameManagerBase
         SpiritDimensionAudio(true);
     }
 
+#if UNITY_STANDALONE
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape) && gmData.currState == GameMangerData.GameState.Game && _canExit)
             PauseGame();
     }
+#endif
+
     #endregion
 
     #region Events
@@ -46,6 +49,7 @@ public class GameManagerLvl5 : GameManagerBase
     void OnGameEndEventReceived()
     {
         _canExit = false;
+        pauseButton.SetActive(false);
         endOutroTimeline.Play();
     }
     #endregion

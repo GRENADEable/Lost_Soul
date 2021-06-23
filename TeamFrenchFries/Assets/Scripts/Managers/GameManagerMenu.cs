@@ -7,6 +7,10 @@ using TMPro;
 public class GameManagerMenu : GameManagerBase
 {
     #region Public Variables
+    [Space, Header("Menu Buttons")]
+    public GameObject optionsButton;
+    public GameObject controlsButton;
+
     [Space, Header("Resolutions")]
     public TMP_Dropdown resDropDown;
     #endregion
@@ -20,6 +24,13 @@ public class GameManagerMenu : GameManagerBase
     {
         gmData.ChangeState("Menu");
         fadeBG.Play("FadeIn");
+#if UNITY_STANDALONE
+        optionsButton.SetActive(true);
+        controlsButton.SetActive(true);
+#else
+        optionsButton.SetActive(false);
+        controlsButton.SetActive(false);
+#endif
         IntializeDropDownRes();
     }
     #endregion
