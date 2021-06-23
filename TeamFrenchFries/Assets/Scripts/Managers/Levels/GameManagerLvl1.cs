@@ -12,11 +12,23 @@ public class GameManagerLvl1 : GameManagerBase
     #region Unity Callbacks
 
     #region Events
-    void OnEnable() => PlayerController.OnLevelEnded += OnLevelEndedEventReceived;
+    void OnEnable()
+    {
+        PlayerController.OnLevelEnded += OnLevelEndedEventReceived;
+        PlayerController.OnVoidDeath += OnVoidDeathEventReceived;
+    }
 
-    void OnDisable() => PlayerController.OnLevelEnded -= OnLevelEndedEventReceived;
+    void OnDisable()
+    {
+        PlayerController.OnLevelEnded -= OnLevelEndedEventReceived;
+        PlayerController.OnVoidDeath -= OnVoidDeathEventReceived;
+    }
 
-    void OnDestroy() => PlayerController.OnLevelEnded -= OnLevelEndedEventReceived;
+    void OnDestroy()
+    {
+        PlayerController.OnLevelEnded -= OnLevelEndedEventReceived;
+        PlayerController.OnVoidDeath -= OnVoidDeathEventReceived;
+    }
     #endregion
 
     void Start()
@@ -34,5 +46,9 @@ public class GameManagerLvl1 : GameManagerBase
         if (Input.GetKeyDown(KeyCode.Escape) && gmData.currState == GameMangerData.GameState.Game)
             PauseGame();
     }
+    #endregion
+
+    #region Events
+    void OnVoidDeathEventReceived() => StartCoroutine(DeathScreenDelay());
     #endregion
 }

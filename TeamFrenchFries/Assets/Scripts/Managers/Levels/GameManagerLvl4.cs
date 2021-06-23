@@ -9,12 +9,6 @@ public class GameManagerLvl4 : GameManagerBase
     [Space, Header("Dimension Timer")]
     public float dimensionDelay = 1f;
     public TextMeshProUGUI dimensionTimerText;
-
-    [Space, Header("Panels")]
-    public GameObject deathPanel;
-
-    [Space, Header("Audios")]
-    public AudioSource deathAud;
     #endregion
 
     #region Private Variables
@@ -114,16 +108,5 @@ public class GameManagerLvl4 : GameManagerBase
     }
     #endregion
 
-    IEnumerator DeathScreenDelay()
-    {
-        fadeBG.Play("FadeOut");
-        deathAud.Play();
-        gmData.ChangeState("Dead");
-        yield return new WaitForSeconds(1f);
-        EnableCursor();
-        fadeBG.Play("FadeIn");
-        hudPanel.gameObject.SetActive(false);
-        deathPanel.SetActive(true);
-    }
     #endregion
 }

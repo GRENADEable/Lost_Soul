@@ -12,6 +12,7 @@ public class GameManagerBase : MonoBehaviour
     public Animator fadeBG;
     public Animator fadeFastBG;
     public Animator hudPanel;
+    public GameObject deathPanel;
     public GameObject pausePanel;
     public GameObject joystickObj;
 
@@ -22,6 +23,7 @@ public class GameManagerBase : MonoBehaviour
 
     [Space, Header("Audio")]
     public AudioSource buttonSFXAud;
+    public AudioSource deathAud;
     public AudioSource[] humanDimensionAud;
     public AudioSource[] spiritDimensionAud;
     public PlayerFootsteps plyFootsteps;
@@ -181,6 +183,18 @@ public class GameManagerBase : MonoBehaviour
         gmData.ChangeState("Intro");
         yield return new WaitForSeconds(1f);
         gmData.ChangeState("Game");
+    }
+
+    protected IEnumerator DeathScreenDelay()
+    {
+        fadeBG.Play("FadeOut");
+        deathAud.Play();
+        gmData.ChangeState("Dead");
+        yield return new WaitForSeconds(1f);
+        EnableCursor();
+        fadeBG.Play("FadeIn");
+        hudPanel.gameObject.SetActive(false);
+        deathPanel.SetActive(true);
     }
 
     IEnumerator RestartGameDelay()

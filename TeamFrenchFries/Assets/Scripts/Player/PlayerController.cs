@@ -84,12 +84,12 @@ public class PlayerController : MonoBehaviour
             _col2D = other;
 
         if (other.CompareTag("Death_Zone"))
-            OnVoidDeath?.Invoke();
+            OnVoidDeath?.Invoke(); // Event sent to All GameManagerLvl Scripts;
 
         if (other.CompareTag("End_Zone"))
         {
             other.enabled = false;
-            OnGameEnd?.Invoke();
+            OnGameEnd?.Invoke(); // Event sent to All GameManagerLvl Scripts;
         }
     }
 

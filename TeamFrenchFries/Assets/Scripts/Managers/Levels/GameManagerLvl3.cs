@@ -27,18 +27,21 @@ public class GameManagerLvl3 : GameManagerBase
     {
         PlayerController.OnLevelEnded += OnLevelEndedEventReceived;
         PlayerController.OnPressurePlatePressed += OnPressurePlatePressedEventReceived;
+        PlayerController.OnVoidDeath += OnVoidDeathEventReceived;
     }
 
     void OnDisable()
     {
         PlayerController.OnLevelEnded -= OnLevelEndedEventReceived;
         PlayerController.OnPressurePlatePressed -= OnPressurePlatePressedEventReceived;
+        PlayerController.OnVoidDeath -= OnVoidDeathEventReceived;
     }
 
     void OnDestroy()
     {
         PlayerController.OnLevelEnded -= OnLevelEndedEventReceived;
         PlayerController.OnPressurePlatePressed -= OnPressurePlatePressedEventReceived;
+        PlayerController.OnVoidDeath -= OnVoidDeathEventReceived;
     }
     #endregion
 
@@ -92,5 +95,7 @@ public class GameManagerLvl3 : GameManagerBase
             endCol2D.enabled = true;
         }
     }
+
+    void OnVoidDeathEventReceived() => StartCoroutine(DeathScreenDelay());
     #endregion
 }

@@ -477,7 +477,6 @@ GameObject:
   m_Component:
   - component: {fileID: 31647329}
   - component: {fileID: 31647332}
-  - component: {fileID: 31647331}
   - component: {fileID: 31647330}
   m_Layer: 0
   m_Name: Ground_Void_8
@@ -526,27 +525,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!50 &31647331
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 31647328}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 7
 --- !u!212 &31647332
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -799,7 +777,6 @@ GameObject:
   m_Component:
   - component: {fileID: 57144455}
   - component: {fileID: 57144458}
-  - component: {fileID: 57144457}
   - component: {fileID: 57144456}
   m_Layer: 0
   m_Name: Ground_Void_9
@@ -848,27 +825,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!50 &57144457
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 57144454}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 7
 --- !u!212 &57144458
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1039,7 +995,6 @@ GameObject:
   m_Component:
   - component: {fileID: 75026826}
   - component: {fileID: 75026829}
-  - component: {fileID: 75026828}
   - component: {fileID: 75026827}
   m_Layer: 0
   m_Name: Ground_Void_10
@@ -1088,27 +1043,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!50 &75026828
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 75026825}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 7
 --- !u!212 &75026829
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1170,7 +1104,6 @@ GameObject:
   m_Component:
   - component: {fileID: 112906176}
   - component: {fileID: 112906179}
-  - component: {fileID: 112906178}
   - component: {fileID: 112906177}
   m_Layer: 0
   m_Name: Ground_Void_14
@@ -1219,27 +1152,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!50 &112906178
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 112906175}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 7
 --- !u!212 &112906179
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2500,7 +2412,6 @@ GameObject:
   m_Component:
   - component: {fileID: 324555820}
   - component: {fileID: 324555823}
-  - component: {fileID: 324555822}
   - component: {fileID: 324555821}
   m_Layer: 0
   m_Name: Ground_Void_7
@@ -2549,27 +2460,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!50 &324555822
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 324555819}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 7
 --- !u!212 &324555823
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3995,7 +3885,6 @@ GameObject:
   m_Component:
   - component: {fileID: 539036416}
   - component: {fileID: 539036419}
-  - component: {fileID: 539036418}
   - component: {fileID: 539036417}
   m_Layer: 0
   m_Name: Ground_Void_13
@@ -4044,27 +3933,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!50 &539036418
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 539036415}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 7
 --- !u!212 &539036419
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4290,7 +4158,6 @@ GameObject:
   m_Component:
   - component: {fileID: 557492406}
   - component: {fileID: 557492409}
-  - component: {fileID: 557492408}
   - component: {fileID: 557492407}
   m_Layer: 0
   m_Name: Ground_Void_6
@@ -4339,27 +4206,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!50 &557492408
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 557492405}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 7
 --- !u!212 &557492409
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4786,7 +4632,6 @@ GameObject:
   m_Component:
   - component: {fileID: 676530815}
   - component: {fileID: 676530818}
-  - component: {fileID: 676530817}
   - component: {fileID: 676530816}
   m_Layer: 0
   m_Name: Ground_Void_5
@@ -4835,27 +4680,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!50 &676530817
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 676530814}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 7
 --- !u!212 &676530818
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5838,7 +5662,6 @@ GameObject:
   m_Component:
   - component: {fileID: 890274115}
   - component: {fileID: 890274118}
-  - component: {fileID: 890274117}
   - component: {fileID: 890274116}
   m_Layer: 0
   m_Name: Ground_Void_4
@@ -5887,27 +5710,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!50 &890274117
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 890274114}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 7
 --- !u!212 &890274118
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -7907,7 +7709,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1167035493}
   - component: {fileID: 1167035496}
-  - component: {fileID: 1167035495}
   - component: {fileID: 1167035494}
   m_Layer: 0
   m_Name: Ground_Void_1
@@ -7956,27 +7757,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!50 &1167035495
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1167035492}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 7
 --- !u!212 &1167035496
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -8215,7 +7995,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1191651557}
   - component: {fileID: 1191651560}
-  - component: {fileID: 1191651559}
   - component: {fileID: 1191651558}
   m_Layer: 0
   m_Name: Ground_Void_2
@@ -8264,27 +8043,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!50 &1191651559
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1191651556}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 7
 --- !u!212 &1191651560
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -9270,7 +9028,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1361322560}
   - component: {fileID: 1361322563}
-  - component: {fileID: 1361322562}
   - component: {fileID: 1361322561}
   m_Layer: 0
   m_Name: Ground_Void_12
@@ -9319,27 +9076,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!50 &1361322562
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1361322559}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 7
 --- !u!212 &1361322563
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -11975,7 +11711,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1746914276}
   - component: {fileID: 1746914279}
-  - component: {fileID: 1746914278}
   - component: {fileID: 1746914277}
   m_Layer: 0
   m_Name: Ground_Void_3
@@ -12024,27 +11759,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!50 &1746914278
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1746914275}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 7
 --- !u!212 &1746914279
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -14307,12 +14021,14 @@ MonoBehaviour:
   fadeBG: {fileID: 1187220046}
   fadeFastBG: {fileID: 185212270}
   hudPanel: {fileID: 973700520}
+  deathPanel: {fileID: 1163221390}
   pausePanel: {fileID: 813543108}
   joystickObj: {fileID: 784846569}
   switchDelay: 0.5
   normalDimension: {fileID: 1318847294}
   horrorDimension: {fileID: 905483868}
   buttonSFXAud: {fileID: 1277073007}
+  deathAud: {fileID: 1678052512}
   humanDimensionAud:
   - {fileID: 2044404623}
   spiritDimensionAud:
@@ -14322,8 +14038,6 @@ MonoBehaviour:
   _currLevel: 4
   dimensionDelay: 2
   dimensionTimerText: {fileID: 2035651947}
-  deathPanel: {fileID: 1163221390}
-  deathAud: {fileID: 1678052512}
 --- !u!1 &2134185120
 GameObject:
   m_ObjectHideFlags: 0
