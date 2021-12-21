@@ -9,6 +9,9 @@ public class GameManagerLvl4 : GameManagerBase
     [Space, Header("Dimension Timer")]
     public float dimensionDelay = 2f;
     public TextMeshProUGUI dimensionTimerText;
+
+    [Space, Header("Dimension Timer")]
+    public GameObject switchDimensionButton;
     #endregion
 
     #region Private Variables
@@ -89,6 +92,7 @@ public class GameManagerLvl4 : GameManagerBase
         fadeFastBG.Play("FadeOut");
         gmData.ChangeState("Switch");
         yield return new WaitForSeconds(switchDelay);
+        switchDimensionButton.SetActive(false);
         HumanDimensionAudio(false);
         SpiritDimensionAudio(true);
         _currTimer = dimensionDelay;
@@ -104,6 +108,7 @@ public class GameManagerLvl4 : GameManagerBase
         fadeFastBG.Play("FadeOut");
         gmData.ChangeState("Switch");
         yield return new WaitForSeconds(switchDelay);
+        switchDimensionButton.SetActive(true);
         SpiritDimensionAudio(false);
         HumanDimensionAudio(true);
         _currTimer = dimensionDelay;

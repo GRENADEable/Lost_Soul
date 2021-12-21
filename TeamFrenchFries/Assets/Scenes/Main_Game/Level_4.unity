@@ -5543,11 +5543,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2929252283123773938, guid: aaa2c939c0359ac4dbce3f49e8b90252, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -213
+      value: -250
       objectReference: {fileID: 0}
     - target: {fileID: 2929252283123773938, guid: aaa2c939c0359ac4dbce3f49e8b90252, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 218
+      value: 250
       objectReference: {fileID: 0}
     - target: {fileID: 2929252283123773938, guid: aaa2c939c0359ac4dbce3f49e8b90252, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -15045,6 +15045,7 @@ MonoBehaviour:
   _currLevel: 4
   dimensionDelay: 2
   dimensionTimerText: {fileID: 2035651947}
+  switchDimensionButton: {fileID: 454062631}
 --- !u!1 &2134185120
 GameObject:
   m_ObjectHideFlags: 0
