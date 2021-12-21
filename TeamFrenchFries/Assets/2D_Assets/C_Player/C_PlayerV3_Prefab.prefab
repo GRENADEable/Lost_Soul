@@ -64,7 +64,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gmData: {fileID: 11400000, guid: 1df56b25f0967134cbb06115688822ef, type: 2}
-  currDiemsion: 1
+  currDiemsion: 0
   footstepSFXAud: {fileID: 0}
   footstepsClips:
   - {fileID: 8300000, guid: 336715bab4e3a1c47bbf46a9483c71c1, type: 3}
