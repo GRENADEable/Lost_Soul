@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using TMPro;
 
 public class GameManagerLvl4 : GameManagerBase
@@ -47,20 +48,20 @@ public class GameManagerLvl4 : GameManagerBase
         HumanDimensionAudio(true);
         doorSFXAud.Play();
     }
+
     void Update()
     {
-#if UNITY_STANDALONE
-        if (Input.GetKeyDown(KeyCode.Space) && gmData.currState == GameMangerData.GameState.Game && !_isSwitched)
-            StartCoroutine(SwitchToHorrorDimensionDelay());
+        //#if UNITY_STANDALONE
+        //        if (Input.GetKeyDown(KeyCode.Space) && gmData.currState == GameMangerData.GameState.Game && !_isSwitched)
+        //            StartCoroutine(SwitchToHorrorDimensionDelay());
 
-        if (Input.GetKeyDown(KeyCode.Escape) && gmData.currState == GameMangerData.GameState.Game)
-            PauseGame();
-#endif
+        //        if (Input.GetKeyDown(KeyCode.Escape) && gmData.currState == GameMangerData.GameState.Game)
+        //            PauseGame();
+        //#endif
 
         if (_isSwitched && gmData.currState == GameMangerData.GameState.Game)
             DimensionCounter();
     }
-
     #endregion
 
     #region My Functions
@@ -82,6 +83,12 @@ public class GameManagerLvl4 : GameManagerBase
 
     #region Events
     void OnVoidDeathEventReceived() => StartCoroutine(DeathScreenDelay());
+
+    public void OnDimensionSwitchForLvl4(InputAction.CallbackContext context)
+    {
+        if (context.started && gmData.currState == GameMangerData.GameState.Game && !_isSwitched)
+            StartCoroutine(SwitchToHorrorDimensionDelay());
+    }
     #endregion
 
     #region Coroutines
@@ -89,7 +96,7 @@ public class GameManagerLvl4 : GameManagerBase
     #region Dimension Switches
     IEnumerator SwitchToHorrorDimensionDelay()
     {
-        fadeFastBG.Play("FadeOut");
+        fadeBG.Play("FadeOut");
         gmData.ChangeState("Switch");
         yield return new WaitForSeconds(switchDelay);
         switchDimensionButton.SetActive(false);
@@ -99,13 +106,13 @@ public class GameManagerLvl4 : GameManagerBase
         _isSwitched = true;
         normalDimension.SetActive(false);
         horrorDimension.SetActive(true);
-        fadeFastBG.Play("FadeIn");
+        fadeBG.Play("FadeIn");
         gmData.ChangeState("Game");
     }
 
     IEnumerator SwitchToNormalDimensionDelay()
     {
-        fadeFastBG.Play("FadeOut");
+        fadeBG.Play("FadeOut");
         gmData.ChangeState("Switch");
         yield return new WaitForSeconds(switchDelay);
         switchDimensionButton.SetActive(true);
@@ -116,7 +123,7 @@ public class GameManagerLvl4 : GameManagerBase
         _isSwitched = false;
         normalDimension.SetActive(true);
         horrorDimension.SetActive(false);
-        fadeFastBG.Play("FadeIn");
+        fadeBG.Play("FadeIn");
         gmData.ChangeState("Game");
     }
     #endregion

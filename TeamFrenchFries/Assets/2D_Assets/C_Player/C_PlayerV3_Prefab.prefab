@@ -84,6 +84,7 @@ GameObject:
   - component: {fileID: 5913216636663192816}
   - component: {fileID: 5913216636663192819}
   - component: {fileID: 5913216636663192818}
+  - component: {fileID: 1222300054}
   - component: {fileID: 5913216636663192829}
   m_Layer: 0
   m_Name: C_PlayerV3_Prefab
@@ -224,6 +225,162 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.5, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &1222300054
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5913216636663192830}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: a0993ddf9e0317548aa1c0916ab7c4f3, type: 3}
+  m_NotificationBehavior: 2
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents:
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5913216636663192829}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: OnMove
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: GhostController, Assembly-CSharp
+        m_MethodName: OnMove
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: d759d797-6046-4b01-88c7-9d95fb6cf154
+    m_ActionName: Player/Move[/Keyboard/w,/Keyboard/upArrow,/Keyboard/s,/Keyboard/downArrow,/Keyboard/a,/Keyboard/leftArrow,/Keyboard/d,/Keyboard/rightArrow]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 166041c2-aaf4-439b-8969-f4c8f4e96f5e
+    m_ActionName: UI/Navigate[/Keyboard/w,/Keyboard/upArrow,/Keyboard/s,/Keyboard/downArrow,/Keyboard/a,/Keyboard/leftArrow,/Keyboard/d,/Keyboard/rightArrow]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 308c8fa0-efe7-4905-9076-bcd0b2de3bc4
+    m_ActionName: UI/Submit[/Keyboard/enter]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 8ce9fabe-43e4-435e-939f-78c40627b4af
+    m_ActionName: UI/Cancel[/Keyboard/escape]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: eee17036-a805-4955-8cad-ca480b1631bc
+    m_ActionName: UI/Point[/Mouse/position,/Touchscreen/touch0/position,/Touchscreen/touch1/position,/Touchscreen/touch2/position,/Touchscreen/touch3/position,/Touchscreen/touch4/position,/Touchscreen/touch5/position,/Touchscreen/touch6/position,/Touchscreen/touch7/position,/Touchscreen/touch8/position,/Touchscreen/touch9/position,/Device
+      Simulator Touchscreen1/touch0/position,/Device Simulator Touchscreen1/touch1/position,/Device
+      Simulator Touchscreen1/touch2/position,/Device Simulator Touchscreen1/touch3/position,/Device
+      Simulator Touchscreen1/touch4/position,/Device Simulator Touchscreen1/touch5/position,/Device
+      Simulator Touchscreen1/touch6/position,/Device Simulator Touchscreen1/touch7/position,/Device
+      Simulator Touchscreen1/touch8/position,/Device Simulator Touchscreen1/touch9/position]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 37980cc9-9a7c-47d0-aef8-c1afbe9bcb7e
+    m_ActionName: UI/Click[/Mouse/leftButton,/Touchscreen/touch0/press,/Touchscreen/touch1/press,/Touchscreen/touch2/press,/Touchscreen/touch3/press,/Touchscreen/touch4/press,/Touchscreen/touch5/press,/Touchscreen/touch6/press,/Touchscreen/touch7/press,/Touchscreen/touch8/press,/Touchscreen/touch9/press,/Device
+      Simulator Touchscreen1/touch0/press,/Device Simulator Touchscreen1/touch1/press,/Device
+      Simulator Touchscreen1/touch2/press,/Device Simulator Touchscreen1/touch3/press,/Device
+      Simulator Touchscreen1/touch4/press,/Device Simulator Touchscreen1/touch5/press,/Device
+      Simulator Touchscreen1/touch6/press,/Device Simulator Touchscreen1/touch7/press,/Device
+      Simulator Touchscreen1/touch8/press,/Device Simulator Touchscreen1/touch9/press]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 8474b2f8-6721-41cb-b880-3a5edc5d97da
+    m_ActionName: UI/ScrollWheel[/Mouse/scroll]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 8d1c5d2f-ef96-464a-96ec-cc3d837ee569
+    m_ActionName: UI/MiddleClick[/Mouse/middleButton]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: c9656640-1ecb-45aa-baa9-566a2e73ca78
+    m_ActionName: UI/RightClick[/Mouse/rightButton]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 6b5a6d06-0740-497a-879c-dfbcb85efc2d
+    m_ActionName: UI/TrackedDevicePosition
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: d564f37f-5d3a-45df-b22b-763cb69608a7
+    m_ActionName: UI/TrackedDeviceOrientation
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: GameManagerBase, Assembly-CSharp
+        m_MethodName: OnPauseGame
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: edac3c89-b52e-4a61-9f8a-cb12b953ae81
+    m_ActionName: Player/Pause[/Keyboard/escape]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: GameManagerBase, Assembly-CSharp
+        m_MethodName: OnDimensionSwitch
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: e9e51814-05f6-4158-ae91-e69ec79387bd
+    m_ActionName: Player/DimensionSwitch[/Keyboard/space]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5913216636663192829}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: OnPick
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 10f2adf1-6110-4534-b0cb-8df0807a922b
+    m_ActionName: Player/Pickup[/Keyboard/e]
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: Keyboard&Mouse
+  m_DefaultActionMap: Player
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
 --- !u!114 &5913216636663192829
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -240,4 +397,3 @@ MonoBehaviour:
   playerSpeed: 3
   pickKeyPos: {fileID: 2493776852554196989}
   playerFootStepAnim: {fileID: 823155366822080314}
-  joy: {fileID: 0}

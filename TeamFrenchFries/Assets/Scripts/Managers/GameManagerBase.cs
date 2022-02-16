@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 public class GameManagerBase : MonoBehaviour
@@ -11,14 +12,13 @@ public class GameManagerBase : MonoBehaviour
 
     [Space, Header("Panels")]
     public Animator fadeBG;
-    public Animator fadeFastBG;
     public Animator hudPanel;
     public GameObject deathPanel;
     public GameObject pausePanel;
 
     [Space, Header("Buttons")]
     public Button[] uIButtons;
-    public GameObject joystickObj;
+    public GameObject controlsObj;
     public GameObject interactionObjs;
     public GameObject pauseButton;
 
@@ -209,6 +209,18 @@ public class GameManagerBase : MonoBehaviour
         _currLevel++;
         StartCoroutine(StartNextLevelDelay());
     }
+
+    public void OnPauseGame(InputAction.CallbackContext context)
+    {
+        if (context.started && gmData.currState == GameMangerData.GameState.Game)
+            PauseGame();
+    }
+
+    public void OnDimensionSwitch(InputAction.CallbackContext context)
+    {
+        if (context.started && gmData.currState == GameMangerData.GameState.Game)
+            StartCoroutine(SwitchDimensionDelay());
+    }
     #endregion
 
     #region Coroutines
@@ -224,18 +236,18 @@ public class GameManagerBase : MonoBehaviour
     {
         DisableCursor();
 #if UNITY_STANDALONE
-        joystickObj.SetActive(false);
+        controlsObj.SetActive(false);
         interactionObjs.SetActive(false);
         pauseButton.SetActive(false);
 #else
-        joystickObj.SetActive(true);
+        controlsObj.SetActive(true);
         interactionObjs.SetActive(true);
         pauseButton.SetActive(true);
 #endif
         hudPanel.Play("FadeIn");
         fadeBG.Play("FadeIn");
         gmData.ChangeState("Intro");
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.5f);
         gmData.ChangeState("Game");
     }
 
@@ -244,7 +256,7 @@ public class GameManagerBase : MonoBehaviour
         fadeBG.Play("FadeOut");
         deathSFXAud.Play();
         gmData.ChangeState("Dead");
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.5f);
         EnableCursor();
         fadeBG.Play("FadeIn");
         hudPanel.gameObject.SetActive(false);
@@ -256,7 +268,7 @@ public class GameManagerBase : MonoBehaviour
         DisableCursor();
         UIButtons();
         fadeBG.Play("FadeOut");
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.5f);
         gmData.NextLevel(_currLevel);
     }
 
@@ -264,7 +276,7 @@ public class GameManagerBase : MonoBehaviour
     {
         UIButtons();
         fadeBG.Play("FadeOut");
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.5f);
         gmData.Menu();
     }
 
@@ -272,28 +284,28 @@ public class GameManagerBase : MonoBehaviour
     {
         UIButtons();
         fadeBG.Play("FadeOut");
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.5f);
         gmData.QuitGame();
     }
 
     protected IEnumerator SwitchDimensionDelay()
     {
-        fadeFastBG.Play("FadeOut");
+        fadeBG.Play("FadeOut");
         gmData.ChangeState("Switch");
         yield return new WaitForSeconds(switchDelay);
         normalDimension.SetActive(!normalDimension.activeSelf);
         horrorDimension.SetActive(!horrorDimension.activeSelf);
         CheckDimension();
-        fadeFastBG.Play("FadeIn");
+        fadeBG.Play("FadeIn");
         gmData.ChangeState("Game");
     }
 
     IEnumerator StartNextLevelDelay()
     {
         hudPanel.Play("FadeOut");
-        fadeFastBG.Play("FadeOut");
+        fadeBG.Play("FadeOut");
         gmData.ChangeState("Switch");
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.5f);
         gmData.NextLevel(_currLevel);
     }
     #endregion

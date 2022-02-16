@@ -1,6 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class GhostController : MonoBehaviour
 {
@@ -13,8 +12,8 @@ public class GhostController : MonoBehaviour
     public float stoppingDistance = 0.5f;
     public Transform followTarget;
 
-    [Space, Header("Joystick")]
-    public Joystick joy;
+    //[Space, Header("Joystick")]
+    //public Joystick joy;
     #endregion
 
     #region Private Variables
@@ -53,13 +52,13 @@ public class GhostController : MonoBehaviour
 
     void PlayerInputs()
     {
-#if UNITY_STANDALONE
-        _moveDirection.x = Input.GetAxisRaw("Horizontal");
-        _moveDirection.y = Input.GetAxisRaw("Vertical");
-#else
-        _moveDirection.x = joy.Horizontal;
-        _moveDirection.y = joy.Vertical;
-#endif
+        //#if UNITY_STANDALONE
+        //        _moveDirection.x = Input.GetAxisRaw("Horizontal");
+        //        _moveDirection.y = Input.GetAxisRaw("Vertical");
+        //#else
+        //        _moveDirection.x = joy.Horizontal;
+        //        _moveDirection.y = joy.Vertical;
+        //#endif
 
         _ghostAnim.SetFloat("Horizontal", _moveDirection.x);
         _ghostAnim.SetFloat("Vertical", _moveDirection.y);
@@ -67,4 +66,10 @@ public class GhostController : MonoBehaviour
         _ghostAnim.SetFloat("Speed", _moveDirection.sqrMagnitude);
     }
     #endregion
+
+    #region Events
+    public void OnMove(InputAction.CallbackContext context) => _moveDirection = context.ReadValue<Vector2>();
+    #endregion
+
+
 }

@@ -46,17 +46,17 @@ public class GameManagerLvl2 : GameManagerBase
         HumanDimensionAudio(true);
     }
 
-#if UNITY_STANDALONE
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Space) && gmData.currState != GameMangerData.GameState.Switch
-            && gmData.currState != GameMangerData.GameState.Paused)
-            StartCoroutine(SwitchDimensionDelay());
+//#if UNITY_STANDALONE
+//    void Update()
+//    {
+//        if (Input.GetKeyDown(KeyCode.Space) && gmData.currState != GameMangerData.GameState.Switch
+//            && gmData.currState != GameMangerData.GameState.Paused)
+//            StartCoroutine(SwitchDimensionDelay());
 
-        if (Input.GetKeyDown(KeyCode.Escape) && gmData.currState == GameMangerData.GameState.Game)
-            PauseGame();
-    }
-#endif
+//        if (Input.GetKeyDown(KeyCode.Escape) && gmData.currState == GameMangerData.GameState.Game)
+//            PauseGame();
+//    }
+//#endif
 
     #endregion
 

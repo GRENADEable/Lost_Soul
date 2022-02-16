@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.Playables;
 
 public class GameManagerLvl5 : GameManagerBase
@@ -29,17 +30,24 @@ public class GameManagerLvl5 : GameManagerBase
         SpiritDimensionAudio(true);
     }
 
-#if UNITY_STANDALONE
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Escape) && gmData.currState == GameMangerData.GameState.Game && _canExit)
-            PauseGame();
-    }
-#endif
+    //#if UNITY_STANDALONE
+    //    void Update()
+    //    {
+    //        if (Input.GetKeyDown(KeyCode.Escape) && gmData.currState == GameMangerData.GameState.Game && _canExit)
+    //            PauseGame();
+    //    }
+    //#endif
 
     #endregion
 
     #region Events
+
+    public void OnPauseForLvl5(InputAction.CallbackContext context)
+    {
+        if (context.started && gmData.currState == GameMangerData.GameState.Game && _canExit)
+            PauseGame();
+    }
+
     public void OnShhStarted()
     {
         SpiritDimensionAudio(false);

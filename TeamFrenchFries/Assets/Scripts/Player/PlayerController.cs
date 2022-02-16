@@ -1,6 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
@@ -13,8 +12,8 @@ public class PlayerController : MonoBehaviour
     public Transform pickKeyPos;
     public Animator playerFootStepAnim;
 
-    [Space, Header("Joystick")]
-    public Joystick joy;
+    //[Space, Header("Joystick")]
+    //public Joystick joy;
 
     #region Events
     public delegate void SendEvents();
@@ -51,7 +50,7 @@ public class PlayerController : MonoBehaviour
         {
             PlayerInputs();
 #if UNITY_STANDALONE
-            CheckInteraction();
+            //CheckInteraction();
 #endif
             FootStepsCheck();
         }
@@ -142,15 +141,19 @@ public class PlayerController : MonoBehaviour
             InteractPlate();
     }
 
+    public void OnClick_PlayerInputMobileX(float input) => _moveDirection.x = input;
+
+    public void OnClick_PlayerInputMobileY(float input) => _moveDirection.y = input;
+
     void PlayerInputs()
     {
-#if UNITY_STANDALONE
-        _moveDirection.x = Input.GetAxisRaw("Horizontal");
-        _moveDirection.y = Input.GetAxisRaw("Vertical");
-#else
-        _moveDirection.x = joy.Horizontal;
-        _moveDirection.y = joy.Vertical;
-#endif
+        //#if UNITY_STANDALONE
+        //        _moveDirection.x = Input.GetAxisRaw("Horizontal");
+        //        _moveDirection.y = Input.GetAxisRaw("Vertical");
+        //#else
+        //        //_moveDirection.x = joy.Horizontal;
+        //        //_moveDirection.y = joy.Vertical;
+        //#endif
 
         _playerAnim.SetFloat("Horizontal", _moveDirection.x);
         _playerAnim.SetFloat("Vertical", _moveDirection.y);
@@ -160,15 +163,15 @@ public class PlayerController : MonoBehaviour
     #endregion
 
     #region Interaction
-    void CheckInteraction()
-    {
-        if (Input.GetKeyDown(KeyCode.E) && _col2D != null && _col2D.CompareTag("Key"))
-            PickKey();
+    //void CheckInteraction()
+    //{
+    //    if (Input.GetKeyDown(KeyCode.E) && _col2D != null && _col2D.CompareTag("Key"))
+    //        PickKey();
 
-        if (Input.GetKeyDown(KeyCode.E) && _col2D != null
-            && _col2D.CompareTag("Plate") && _currKey == 1)
-            InteractPlate();
-    }
+    //    if (Input.GetKeyDown(KeyCode.E) && _col2D != null
+    //        && _col2D.CompareTag("Plate") && _currKey == 1)
+    //        InteractPlate();
+    //}
 
     void PickKey()
     {
@@ -192,5 +195,18 @@ public class PlayerController : MonoBehaviour
     }
     #endregion
 
+    #endregion
+
+    #region Events
+    public void OnMove(InputAction.CallbackContext context) => _moveDirection = context.ReadValue<Vector2>();
+
+    public void OnPick(InputAction.CallbackContext context)
+    {
+        if (context.started && _col2D != null && _col2D.CompareTag("Key"))
+            PickKey();
+
+        if (context.started && _col2D != null && _col2D.CompareTag("Plate") && _currKey == 1)
+            InteractPlate();
+    }
     #endregion
 }

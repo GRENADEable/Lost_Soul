@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class GameManagerLvl1 : GameManagerBase
 {
@@ -32,16 +33,16 @@ public class GameManagerLvl1 : GameManagerBase
         HumanDimensionAudio(true);
         doorSFXAud.Play();
     }
-#if UNITY_STANDALONE
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Space) && gmData.currState == GameMangerData.GameState.Game)
-            StartCoroutine(SwitchDimensionDelay());
+    //#if UNITY_STANDALONE
+    //    void Update()
+    //    {
+    //        if (Input.GetKeyDown(KeyCode.Space) && gmData.currState == GameMangerData.GameState.Game)
+    //            StartCoroutine(SwitchDimensionDelay());
 
-        if (Input.GetKeyDown(KeyCode.Escape) && gmData.currState == GameMangerData.GameState.Game)
-            PauseGame();
-    }
-#endif
+    //        if (Input.GetKeyDown(KeyCode.Escape) && gmData.currState == GameMangerData.GameState.Game)
+    //            PauseGame();
+    //    }
+    //#endif
 
     #endregion
 
